@@ -170,8 +170,11 @@ a { color: inherit; text-decoration: none; }
   height: 340px; position: relative;
   border-bottom: 1px solid var(--border);
 }
-#map { width: 100%; height: 100%; background: #2a1e30; border-radius: 0; }
-.sunset-tiles { filter: saturate(0.3) sepia(0.35) hue-rotate(-15deg) brightness(0.55) contrast(1.1); }
+#map { width: 100%; height: 100%; background: #e8e0d8; border-radius: 0; }
+.sunset-tiles { filter: none; }
+@media (prefers-color-scheme: dark) {
+  .sunset-tiles { filter: none; }
+}
 .leaflet-control-attribution { font-size: 9px !important; opacity: 0.5; }
 .leaflet-control-zoom a {
   background: rgba(26,14,30,0.9) !important; color: #fff !important;
@@ -181,7 +184,7 @@ a { color: inherit; text-decoration: none; }
   width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 900; color: #fff;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 0 8px rgba(255,170,64,0.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4), 0 0 6px rgba(212,64,10,0.4);
   transition: transform 0.2s;
   position: relative;
 }
@@ -339,12 +342,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== POPUP ===== */
 .leaflet-popup-content-wrapper {
-  background: rgba(26,14,30,0.92) !important;
+  background: rgba(30,16,34,0.95) !important;
   backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
   border-radius: 10px !important;
   color: #fff !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
 }
 .leaflet-popup-tip { background: rgba(26,14,30,0.92) !important; }
 .popup-name { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
@@ -476,7 +479,7 @@ a { color: inherit; text-decoration: none; }
       if (rem <= 0) { statusCls = 'sold-out'; badgeCls = 'out'; badgeText = 'SOLD'; }
       else if (pct <= 0.3) { badgeCls = 'low'; }
 
-      const pinColor = rem <= 0 ? '#6a5a6a' : '#ffaa40';
+      const pinColor = rem <= 0 ? '#999' : '#d4400a';
       const icon = L.divIcon({
         className: '',
         html: '<div class="map-pin ' + statusCls + '" style="background:' + pinColor + ';--pin-color:' + pinColor + ';">' +
