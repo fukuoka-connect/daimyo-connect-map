@@ -133,6 +133,20 @@
       "desc": "",
       "tickets_total": 10,
       "tickets_remaining": 10
+    },
+    {
+      "id": "sofuren-umi",
+      "name": "想夫恋 宇美店",
+      "area": "その他",
+      "addr": "福岡県糟屋郡宇美町宇美中央2-24-7",
+      "tel": "092-933-3991",
+      "hrs": "",
+      "lat": 33.5649,
+      "lng": 130.5068,
+      "instagram": "https://www.instagram.com/goto.yakisoba/",
+      "desc": "日田焼きそば専門店・創業39年",
+      "tickets_total": 10,
+      "tickets_remaining": 10
     }
   ]
 }
