@@ -119,6 +119,20 @@
       "desc": "CROSS FM関連",
       "tickets_total": 10,
       "tickets_remaining": 10
+    },
+    {
+      "id": "koji",
+      "name": "酒場コージ",
+      "area": "福岡市",
+      "addr": "福岡県福岡市中央区大名1-9-18 大名Fビル 1F",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5893,
+      "lng": 130.3942,
+      "instagram": "",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
     }
   ]
 }
