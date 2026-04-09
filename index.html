@@ -356,6 +356,102 @@ a { color: inherit; text-decoration: none; }
 .popup-tickets .num.low { color: #ffaa40; }
 .popup-tickets .num.out { color: #ff5c5c; }
 
+/* ===== TABS ===== */
+.tab-bar {
+  max-width: 520px; margin: 0 auto;
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.tab-btn {
+  flex: 1; padding: 12px 0;
+  font-family: inherit; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-dim); background: none; border: none;
+  cursor: pointer; transition: all 0.25s;
+  position: relative;
+}
+.tab-btn::after {
+  content: ''; position: absolute; bottom: 0; left: 20%; right: 20%;
+  height: 2px; background: transparent; border-radius: 1px;
+  transition: all 0.25s;
+}
+.tab-btn.active { color: #ffd475; }
+.tab-btn.active::after {
+  background: linear-gradient(90deg, #ffd475, #ffaa40);
+  left: 25%; right: 25%;
+  box-shadow: 0 0 8px rgba(255,170,64,0.4);
+}
+.tab-btn:hover:not(.active) { color: var(--text-mid); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ===== EVENT DETAIL ===== */
+.event-detail {
+  max-width: 520px; margin: 0 auto;
+  padding: 20px 20px 100px;
+}
+.detail-block {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+.detail-block-title {
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.25em;
+  color: var(--text-dim); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.artist-list { list-style: none; }
+.artist-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; gap: 12px;
+}
+.artist-item:last-child { border-bottom: none; padding-bottom: 0; }
+.artist-item:first-child { padding-top: 0; }
+.artist-tag {
+  flex-shrink: 0;
+  font-size: 0.48rem; font-weight: 700; letter-spacing: 0.12em;
+  padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase;
+}
+.artist-tag.live { background: rgba(255,170,64,0.15); color: #ffaa40; }
+.artist-tag.mc { background: rgba(94,234,160,0.12); color: #5eeaa0; }
+.artist-tag.dj { background: rgba(160,140,255,0.12); color: #a08cff; }
+.artist-name {
+  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+.artist-sub {
+  font-size: 0.68rem; color: var(--text-dim); font-weight: 400;
+}
+.info-grid {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+}
+.info-label {
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em;
+  color: var(--text-dim); text-transform: uppercase;
+  padding-top: 2px;
+}
+.info-value {
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  line-height: 1.6;
+}
+.info-value.price {
+  font-size: 1rem; font-weight: 700;
+  background: linear-gradient(135deg, #ffd475, #ffaa40);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.detail-note {
+  font-size: 0.7rem; color: var(--text-dim); line-height: 1.8;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 520px) {
   .event-title { font-size: 1.3rem; }
@@ -396,24 +492,99 @@ a { color: inherit; text-decoration: none; }
   <span class="ticket-label">TICKET</span>
 </div>
 
-<!-- FILTER -->
-<div class="filter-bar">
-  <button class="filter-btn active" data-area="all">すべて</button>
-  <button class="filter-btn" data-area="福岡市">福岡市</button>
-  <button class="filter-btn" data-area="その他">その他</button>
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="map">TICKET MAP</button>
+  <button class="tab-btn" data-tab="event">EVENT DETAIL</button>
 </div>
 
-<!-- MAP -->
-<div class="map-wrap"><div id="map"></div></div>
-
-<!-- SHOP LIST -->
-<section class="shop-section">
-  <div class="section-header">
-    <span class="section-title">TICKET SHOPS</span>
-    <span class="shop-count"><strong id="visibleCount">0</strong> / <span id="totalCount">0</span></span>
+<!-- TAB: MAP -->
+<div class="tab-panel active" id="panel-map">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-area="all">すべて</button>
+    <button class="filter-btn" data-area="福岡市">福岡市</button>
+    <button class="filter-btn" data-area="その他">その他</button>
   </div>
-  <div id="shopList"></div>
-</section>
+  <div class="map-wrap"><div id="map"></div></div>
+  <section class="shop-section">
+    <div class="section-header">
+      <span class="section-title">TICKET SHOPS</span>
+      <span class="shop-count"><strong id="visibleCount">0</strong> / <span id="totalCount">0</span></span>
+    </div>
+    <div id="shopList"></div>
+  </section>
+</div>
+
+<!-- TAB: EVENT DETAIL -->
+<div class="tab-panel" id="panel-event">
+  <section class="event-detail">
+
+    <!-- LINEUP -->
+    <div class="detail-block">
+      <div class="detail-block-title">LINE UP</div>
+      <ul class="artist-list">
+        <li class="artist-item">
+          <span class="artist-tag live">LIVE</span>
+          <div><span class="artist-name">Rickie-G</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag live">LIVE</span>
+          <div><span class="artist-name">Mummy-D</span><br><span class="artist-sub">from RHYMESTER</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag live">LIVE</span>
+          <div><span class="artist-name">CHOZEN LEE AND THE BANG ATTACK</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag live">LIVE</span>
+          <div><span class="artist-name">NakamuraEmi</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag live">LIVE</span>
+          <div><span class="artist-name">ROWHOO</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag mc">MC</span>
+          <div><span class="artist-name">LUE</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag dj">DJ</span>
+          <div><span class="artist-name">KC</span><br><span class="artist-sub">from Chomoranma Sound</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- EVENT INFO -->
+    <div class="detail-block">
+      <div class="detail-block-title">EVENT INFO</div>
+      <div class="info-grid">
+        <span class="info-label">DATE</span>
+        <span class="info-value">2026.6.6 (SAT)</span>
+        <span class="info-label">VENUE</span>
+        <span class="info-value">FUKUOKA UNITEDLAB</span>
+        <span class="info-label">OPEN</span>
+        <span class="info-value">16:00</span>
+        <span class="info-label">START</span>
+        <span class="info-value">16:30</span>
+      </div>
+    </div>
+
+    <!-- TICKET INFO -->
+    <div class="detail-block">
+      <div class="detail-block-title">TICKET</div>
+      <div class="info-grid">
+        <span class="info-label">ADV</span>
+        <span class="info-value price">&yen;5,800</span>
+        <span class="info-label">DOOR</span>
+        <span class="info-value price">&yen;6,500</span>
+      </div>
+      <div class="detail-note">
+        ※ チケットは各取扱店にて販売中。TICKET MAP タブから最寄りの取扱店を探せます。
+      </div>
+    </div>
+
+  </section>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -444,6 +615,23 @@ a { color: inherit; text-decoration: none; }
     initMap();
     renderShops();
     bindFilters();
+    bindTabs();
+  }
+
+  /* ===== TABS ===== */
+  function bindTabs() {
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        var panel = document.getElementById('panel-' + this.dataset.tab);
+        if (panel) panel.classList.add('active');
+        if (this.dataset.tab === 'map') {
+          setTimeout(function() { map.invalidateSize(); }, 100);
+        }
+      });
+    });
   }
 
   /* ===== MAP ===== */
