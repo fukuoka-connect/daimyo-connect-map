@@ -17,8 +17,12 @@
         "NakamuraEmi",
         "ROWHOO"
       ],
-      "mc": ["LUE"],
-      "dj": ["KC (from Chomoranma Sound)"]
+      "mc": [
+        "LUE"
+      ],
+      "dj": [
+        "KC (from Chomoranma Sound)"
+      ]
     }
   },
   "shops": [
@@ -34,7 +38,7 @@
       "instagram": "https://www.instagram.com/oneday_banshakubar/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 10
+      "tickets_remaining": 3
     },
     {
       "id": "allrush",
@@ -43,8 +47,8 @@
       "addr": "福岡市中央区薬院4丁目1-9 堤ビル3F",
       "tel": "",
       "hrs": "",
-      "lat": 33.5760,
-      "lng": 130.3980,
+      "lat": 33.576,
+      "lng": 130.398,
       "instagram": "https://www.instagram.com/place_of_all_rush/",
       "desc": "",
       "tickets_total": 10,
@@ -86,7 +90,7 @@
       "tel": "",
       "hrs": "",
       "lat": 33.5888,
-      "lng": 130.3950,
+      "lng": 130.395,
       "instagram": "https://www.instagram.com/_comstand/",
       "desc": "",
       "tickets_total": 10,
@@ -113,7 +117,7 @@
       "addr": "福岡県福岡市中央区大名1-4-28",
       "tel": "",
       "hrs": "",
-      "lat": 33.5900,
+      "lat": 33.59,
       "lng": 130.3958,
       "instagram": "https://www.instagram.com/mintbarhacca/",
       "desc": "",
