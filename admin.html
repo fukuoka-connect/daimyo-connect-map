@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ADMIN | DAIMYOU CONNECT 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #1a0e1e;
+  --card: rgba(0,0,0,0.3);
+  --border: rgba(255,255,255,0.12);
+  --text: #fff;
+  --text-mid: rgba(255,255,255,0.7);
+  --text-dim: rgba(255,255,255,0.4);
+  --accent: #ffaa40;
+  --green: #5eeaa0;
+  --red: #ff5c5c;
+}
+body {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  background: linear-gradient(180deg, #1a0e1e 0%, #2e1228 30%, #4a1a2a 60%, #6b2a1e 100%);
+  background-attachment: fixed;
+  color: var(--text); min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px;
+}
+.container { max-width: 600px; margin: 0 auto; }
+
+/* HEADER */
+.header {
+  text-align: center; padding: 24px 0 32px;
+}
+.header h1 {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.3em;
+  color: var(--accent); text-transform: uppercase;
+}
+.header p {
+  font-size: 1.4rem; font-weight: 900; margin-top: 4px;
+  background: linear-gradient(135deg, #fff, #ffaa40);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* AUTH */
+.auth-box {
+  background: var(--card); backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; margin-bottom: 20px;
+}
+.auth-box label {
+  display: block; font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--text-dim);
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.auth-box input {
+  width: 100%; padding: 12px 14px;
+  background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text);
+  font-family: 'Courier New', monospace; font-size: 0.78rem;
+  margin-bottom: 12px;
+}
+.auth-box input:focus { outline: none; border-color: var(--accent); }
+.auth-help {
+  font-size: 0.65rem; color: var(--text-dim); line-height: 1.7;
+  margin-top: 8px;
+}
+.auth-help a { color: var(--accent); text-decoration: underline; }
+
+/* SHOP */
+.shop-card {
+  background: var(--card); backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px; margin-bottom: 12px;
+}
+.shop-name {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;
+}
+.counter {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px;
+}
+.cnt-btn {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,170,64,0.15); border: 1px solid rgba(255,170,64,0.3);
+  color: var(--accent); font-size: 1.4rem; font-weight: 700;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+  font-family: inherit;
+}
+.cnt-btn:hover { background: rgba(255,170,64,0.25); transform: scale(1.05); }
+.cnt-btn:active { transform: scale(0.95); }
+.cnt-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+.cnt-display {
+  flex: 1; text-align: center;
+}
+.cnt-num {
+  font-size: 2rem; font-weight: 900; color: var(--accent);
+  line-height: 1;
+}
+.cnt-num.zero { color: var(--red); }
+.cnt-total {
+  font-size: 0.62rem; color: var(--text-dim);
+  letter-spacing: 0.1em; margin-top: 4px;
+}
+.cnt-changed { color: var(--green) !important; }
+
+/* SAVE BAR */
+.save-bar {
+  position: sticky; bottom: 20px;
+  margin-top: 24px; padding: 16px;
+  background: rgba(26,14,30,0.92); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: 12px;
+  display: flex; gap: 12px; align-items: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.save-status { flex: 1; font-size: 0.7rem; color: var(--text-mid); }
+.save-status.dirty { color: var(--accent); font-weight: 600; }
+.save-status.success { color: var(--green); }
+.save-status.error { color: var(--red); }
+.save-btn {
+  font-family: inherit; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 12px 24px; border-radius: 8px;
+  background: linear-gradient(135deg, #ffd475, #ffaa40);
+  color: #1a0e1e; border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.save-btn:hover { background: linear-gradient(135deg, #ffe09a, #ffbb55); }
+.save-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.toolbar {
+  display: flex; gap: 8px; margin-bottom: 16px;
+}
+.tool-btn {
+  flex: 1; font-family: inherit; font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.06em; padding: 10px;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text-mid); cursor: pointer;
+  transition: all 0.2s;
+}
+.tool-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+
+a.back { display: inline-block; margin-top: 20px; font-size: 0.7rem; color: var(--text-dim); text-decoration: none; }
+a.back:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+  <h1>ADMIN PANEL</h1>
+  <p>DAIMYOU CONNECT 2026</p>
+</header>
+
+<!-- AUTH -->
+<div class="auth-box" id="authBox">
+  <label>GitHub Personal Access Token</label>
+  <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+  <button class="save-btn" onclick="saveToken()" style="width:100%">トークンを保存して認証</button>
+  <div class="auth-help">
+    GitHub → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong><br>
+    Repository access: <strong>fukuoka-connect/daimyo-connect-map</strong><br>
+    Permissions: <strong>Contents: Read and write</strong><br>
+    トークンはこの端末にのみ保存されます（localStorage）
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar" id="toolbar" style="display:none">
+  <button class="tool-btn" onclick="resetAll()">全店舗を10枚にリセット</button>
+  <button class="tool-btn" onclick="logout()">ログアウト</button>
+</div>
+
+<!-- SHOP LIST -->
+<div id="shopList"></div>
+
+<!-- SAVE BAR -->
+<div class="save-bar" id="saveBar" style="display:none">
+  <div class="save-status" id="saveStatus">変更なし</div>
+  <button class="save-btn" id="saveBtn" onclick="saveData()" disabled>保存</button>
+</div>
+
+<a href="index.html" class="back">← MAPに戻る</a>
+
+</div>
+
+<script>
+const REPO = 'fukuoka-connect/daimyo-connect-map';
+const FILE = 'data.json';
+const BRANCH = 'master';
+let DATA = null;
+let SHA = null;
+let DIRTY = false;
+let TOKEN = localStorage.getItem('gh_token') || '';
+
+if (TOKEN) {
+  document.getElementById('authBox').style.display = 'none';
+  document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('saveBar').style.display = 'flex';
+  loadData();
+}
+
+function saveToken() {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return alert('トークンを入力してください');
+  TOKEN = t;
+  localStorage.setItem('gh_token', t);
+  document.getElementById('authBox').style.display = 'none';
+  document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('saveBar').style.display = 'flex';
+  loadData();
+}
+
+function logout() {
+  if (DIRTY && !confirm('未保存の変更があります。ログアウトしますか？')) return;
+  localStorage.removeItem('gh_token');
+  location.reload();
+}
+
+async function loadData() {
+  setStatus('読み込み中...', '');
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}?ref=${BRANCH}`, {
+      headers: { 'Authorization': `Bearer ${TOKEN}`, 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    SHA = json.sha;
+    DATA = JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g, '')))));
+    renderShops();
+    setStatus('読み込み完了', 'success');
+    setTimeout(() => setStatus('変更なし', ''), 1500);
+  } catch (e) {
+    setStatus('読み込み失敗: ' + e.message, 'error');
+    if (e.message.includes('401') || e.message.includes('403')) {
+      alert('トークンが無効です。再認証してください。');
+      logout();
+    }
+  }
+}
+
+function renderShops() {
+  const list = document.getElementById('shopList');
+  list.innerHTML = '';
+  DATA.shops.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'shop-card';
+    card.innerHTML = `
+      <div class="shop-name">${s.name}</div>
+      <div class="counter">
+        <button class="cnt-btn" onclick="adjust(${i}, -1)" ${s.tickets_remaining <= 0 ? 'disabled' : ''}>−</button>
+        <div class="cnt-display">
+          <div class="cnt-num ${s.tickets_remaining === 0 ? 'zero' : ''}" id="num-${i}">${s.tickets_remaining}</div>
+          <div class="cnt-total">/ ${s.tickets_total} 枚</div>
+        </div>
+        <button class="cnt-btn" onclick="adjust(${i}, 1)" ${s.tickets_remaining >= s.tickets_total ? 'disabled' : ''}>+</button>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function adjust(i, delta) {
+  const s = DATA.shops[i];
+  const next = s.tickets_remaining + delta;
+  if (next < 0 || next > s.tickets_total) return;
+  s.tickets_remaining = next;
+  DIRTY = true;
+  setStatus('未保存の変更あり', 'dirty');
+  document.getElementById('saveBtn').disabled = false;
+  renderShops();
+  document.getElementById('num-' + i).classList.add('cnt-changed');
+}
+
+function resetAll() {
+  if (!confirm('全店舗を10枚に戻します。よろしいですか？')) return;
+  DATA.shops.forEach(s => s.tickets_remaining = s.tickets_total);
+  DIRTY = true;
+  setStatus('未保存の変更あり', 'dirty');
+  document.getElementById('saveBtn').disabled = false;
+  renderShops();
+}
+
+async function saveData() {
+  if (!DIRTY) return;
+  setStatus('保存中...', '');
+  document.getElementById('saveBtn').disabled = true;
+  try {
+    const content = JSON.stringify(DATA, null, 2) + '\n';
+    const encoded = btoa(unescape(encodeURIComponent(content)));
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${TOKEN}`, 'Accept': 'application/vnd.github+json' },
+      body: JSON.stringify({
+        message: 'admin: チケット残数更新 ' + new Date().toISOString().slice(0,16),
+        content: encoded,
+        sha: SHA,
+        branch: BRANCH
+      })
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
+    const json = await res.json();
+    SHA = json.content.sha;
+    DIRTY = false;
+    setStatus('✓ 保存完了（数十秒で反映）', 'success');
+    setTimeout(() => setStatus('変更なし', ''), 3000);
+  } catch (e) {
+    setStatus('保存失敗: ' + e.message, 'error');
+    document.getElementById('saveBtn').disabled = false;
+  }
+}
+
+function setStatus(text, cls) {
+  const el = document.getElementById('saveStatus');
+  el.textContent = text;
+  el.className = 'save-status ' + (cls || '');
+}
+
+window.addEventListener('beforeunload', e => {
+  if (DIRTY) { e.preventDefault(); e.returnValue = ''; }
+});
+</script>
+</body>
+</html>
