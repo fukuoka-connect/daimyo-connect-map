@@ -365,6 +365,38 @@ a { color: inherit; text-decoration: none; }
 .popup-tickets .num.low { color: #ffaa40; }
 .popup-tickets .num.out { color: #ff5c5c; }
 
+/* ===== SHARE ===== */
+.share-section {
+  max-width: 520px; margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.share-label {
+  font-size: 0.52rem; font-weight: 700; letter-spacing: 0.22em;
+  color: var(--text-dim); text-transform: uppercase;
+  white-space: nowrap;
+}
+.share-buttons {
+  display: flex; gap: 8px; flex: 1; justify-content: flex-end;
+}
+.share-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer; transition: all 0.2s;
+  color: #fff; text-decoration: none;
+  font-family: inherit; padding: 0;
+}
+.share-btn:hover { transform: translateY(-2px) scale(1.05); }
+.share-btn svg { width: 17px; height: 17px; }
+.share-btn.x:hover { background: #000; border-color: #000; }
+.share-btn.line:hover { background: #06C755; border-color: #06C755; }
+.share-btn.fb:hover { background: #1877F2; border-color: #1877F2; }
+.share-btn.copy:hover { background: rgba(255,170,64,0.2); border-color: #ffaa40; color: #ffaa40; }
+.share-btn.copy.copied { background: #5eeaa0; border-color: #5eeaa0; color: #0a0a0f; }
+
 /* ===== PROGRESS ===== */
 .progress-section {
   max-width: 520px; margin: 0 auto;
@@ -601,6 +633,25 @@ a { color: inherit; text-decoration: none; }
   <span class="ticket-label">TICKET</span>
 </div>
 
+<!-- SHARE -->
+<section class="share-section">
+  <span class="share-label">SHARE</span>
+  <div class="share-buttons">
+    <a href="#" class="share-btn x" id="shareX" target="_blank" rel="noopener noreferrer" aria-label="Xでシェア" title="Xでシェア">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="#" class="share-btn line" id="shareLine" target="_blank" rel="noopener noreferrer" aria-label="LINEでシェア" title="LINEでシェア">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.89c.50 0 .934.44.934.93 0 .5-.434.93-.934.93h-2.93v1.86h2.93c.5 0 .934.44.934.93 0 .5-.434.93-.934.93h-3.86c-.5 0-.934-.44-.934-.93V6.9c0-.5.434-.93.934-.93h3.86c.5 0 .934.43.934.93 0 .5-.434.93-.934.93h-2.93v1.86zM13.5 14.47c0 .5-.434.93-.934.93-.3 0-.557-.13-.73-.36L7.93 9.67v4.8c0 .5-.434.93-.934.93-.5 0-.934-.44-.934-.93V6.9c0-.5.434-.93.934-.93.3 0 .557.13.73.36l3.917 5.38V6.9c0-.5.43-.93.93-.93.5 0 .934.43.934.93zM5.1 14.47c0 .5-.43.93-.93.93-.5 0-.934-.44-.934-.93V6.9c0-.5.434-.93.934-.93.5 0 .93.43.93.93zM12 0C5.37 0 0 4.36 0 9.74c0 4.82 4.27 8.86 10.02 9.62.39.08.92.26 1.06.6.13.3.08.78.04 1.09l-.17 1.03c-.05.3-.24 1.19 1.05.65 1.29-.54 6.97-4.1 9.51-7.03 1.76-1.93 2.6-3.89 2.6-6.05C24.08 4.36 18.71 0 12 0z"/></svg>
+    </a>
+    <a href="#" class="share-btn fb" id="shareFb" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" title="Facebookでシェア">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+    </a>
+    <button class="share-btn copy" id="shareCopy" aria-label="URLをコピー" title="URLをコピー">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    </button>
+  </div>
+</section>
+
 <!-- PROGRESS -->
 <section class="progress-section">
   <div class="progress-top">
@@ -753,6 +804,28 @@ a { color: inherit; text-decoration: none; }
     renderProgress();
     bindFilters();
     bindTabs();
+    bindShare();
+  }
+
+  /* ===== SHARE ===== */
+  function bindShare() {
+    var url = 'https://fukuoka-connect.github.io/daimyo-connect-map/';
+    var text = 'DAIMYOU CONNECT 2026 | 2026.6.6 SAT @ FUKUOKA UNITEDLAB\nRickie-G / Mummy-D / CHOZEN LEE / NakamuraEmi / ROWHOO 出演\nチケット取扱店を地図でチェック👇';
+    var hashtags = 'DAIMYOUCONNECT,福岡,ライブ';
+    document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url) + '&hashtags=' + encodeURIComponent(hashtags);
+    document.getElementById('shareLine').href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+    document.getElementById('shareFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shareCopy').addEventListener('click', function() {
+      var btn = this;
+      navigator.clipboard.writeText(url).then(function() {
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+        }, 1800);
+      });
+    });
   }
 
   /* ===== PROGRESS ===== */
