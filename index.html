@@ -130,6 +130,56 @@ a { color: inherit; text-decoration: none; }
 }
 .event-artists strong { color: var(--text-mid); font-weight: 600; }
 
+/* ===== COUNTDOWN ===== */
+.countdown {
+  margin-top: 16px; padding: 14px 16px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,170,64,0.2);
+  border-radius: 10px;
+  display: flex; align-items: center; gap: 14px;
+}
+.countdown-label {
+  font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--text-dim); text-transform: uppercase;
+  writing-mode: vertical-rl;
+  padding: 2px 0;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  padding-right: 12px;
+}
+.countdown-units {
+  display: flex; gap: 12px; flex: 1; justify-content: space-around;
+}
+.countdown-unit {
+  text-align: center;
+}
+.countdown-num {
+  font-size: 1.6rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, #ffd475, #ffaa40);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+}
+.countdown-unit-label {
+  font-size: 0.48rem; font-weight: 600; letter-spacing: 0.15em;
+  color: var(--text-dim); text-transform: uppercase;
+  margin-top: 3px;
+}
+.countdown.urgent .countdown-num {
+  background: linear-gradient(135deg, #ff5c5c, #ff3c3c);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.countdown.final {
+  background: rgba(255,60,60,0.1);
+  border-color: rgba(255,60,60,0.3);
+}
+.countdown-final-text {
+  font-size: 1rem; font-weight: 900; text-align: center; flex: 1;
+  color: #ff5c5c;
+  letter-spacing: 0.08em;
+}
+
 /* ===== TICKET INFO ===== */
 .ticket-strip {
   max-width: 520px; margin: 0 auto;
@@ -311,6 +361,8 @@ a { color: inherit; text-decoration: none; }
 .shop-btn:hover { border-color: var(--border-hover); color: var(--text); }
 .shop-btn.ig { border-color: rgba(255,170,64,0.25); color: #ffd475; }
 .shop-btn.ig:hover { background: rgba(255,170,64,0.12); }
+.shop-btn.route { border-color: rgba(94,234,160,0.25); color: #5eeaa0; }
+.shop-btn.route:hover { background: rgba(94,234,160,0.12); }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -576,6 +628,36 @@ a { color: inherit; text-decoration: none; }
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.venue-name {
+  font-size: 1rem; font-weight: 900; letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.venue-addr {
+  font-size: 0.72rem; color: var(--text-mid); line-height: 1.6;
+  margin-bottom: 14px;
+}
+.access-list {
+  list-style: none;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+.access-list li {
+  font-size: 0.75rem; color: var(--text-mid); line-height: 2;
+  display: flex; align-items: center; gap: 10px;
+}
+.access-icon { font-size: 0.9rem; flex-shrink: 0; }
+.venue-route-btn {
+  display: block; text-align: center;
+  padding: 12px; border-radius: 8px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  background: rgba(94,234,160,0.12);
+  border: 1px solid rgba(94,234,160,0.3);
+  color: #5eeaa0;
+  transition: all 0.2s;
+}
+.venue-route-btn:hover { background: rgba(94,234,160,0.2); }
 .eplus-btn {
   display: block; text-align: center;
   margin-top: 16px; padding: 14px;
@@ -621,6 +703,15 @@ a { color: inherit; text-decoration: none; }
   <div class="event-artists">
     <strong>LIVE:</strong> Rickie-G / Mummy-D (from RHYMESTER) / CHOZEN LEE AND THE BANG ATTACK / NakamuraEmi / ROWHOO<br>
     <strong>MC:</strong> LUE &nbsp; <strong>DJ:</strong> KC (from Chomoranma Sound)
+  </div>
+  <div class="countdown" id="countdown">
+    <span class="countdown-label">COUNT<br>DOWN</span>
+    <div class="countdown-units" id="countdownUnits">
+      <div class="countdown-unit"><div class="countdown-num" id="cdDays">-</div><div class="countdown-unit-label">Days</div></div>
+      <div class="countdown-unit"><div class="countdown-num" id="cdHours">-</div><div class="countdown-unit-label">Hours</div></div>
+      <div class="countdown-unit"><div class="countdown-num" id="cdMinutes">-</div><div class="countdown-unit-label">Min</div></div>
+      <div class="countdown-unit"><div class="countdown-num" id="cdSeconds">-</div><div class="countdown-unit-label">Sec</div></div>
+    </div>
   </div>
 </section>
 
@@ -746,6 +837,21 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
 
+    <!-- VENUE ACCESS -->
+    <div class="detail-block">
+      <div class="detail-block-title">VENUE ACCESS</div>
+      <div class="venue-name">FUKUOKA UNITEDLAB</div>
+      <div class="venue-addr">福岡県福岡市中央区渡辺通4-1-23</div>
+      <ul class="access-list">
+        <li><span class="access-icon">🚇</span>西鉄「薬院」駅より徒歩約5分</li>
+        <li><span class="access-icon">🚇</span>地下鉄七隈線「渡辺通」駅より徒歩約3分</li>
+        <li><span class="access-icon">🚌</span>西鉄バス「渡辺通1丁目」バス停より徒歩約2分</li>
+      </ul>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=FUKUOKA+UNITEDLAB&destination_place_id=福岡UNITEDLAB" target="_blank" rel="noopener noreferrer" class="venue-route-btn">
+        <span>🗺️ Google Maps で経路を見る</span>
+      </a>
+    </div>
+
     <!-- TICKET INFO -->
     <div class="detail-block">
       <div class="detail-block-title">TICKET</div>
@@ -805,6 +911,35 @@ a { color: inherit; text-decoration: none; }
     bindFilters();
     bindTabs();
     bindShare();
+    startCountdown();
+  }
+
+  /* ===== COUNTDOWN ===== */
+  function startCountdown() {
+    var target = new Date('2026-06-06T16:30:00+09:00').getTime();
+    var el = document.getElementById('countdown');
+    var unitsWrap = document.getElementById('countdownUnits');
+
+    function update() {
+      var now = Date.now();
+      var diff = target - now;
+      if (diff <= 0) {
+        unitsWrap.innerHTML = '<div class="countdown-final-text">🎉 EVENT DAY 🎉</div>';
+        el.classList.add('final');
+        return;
+      }
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cdDays').textContent = days;
+      document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cdMinutes').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cdSeconds').textContent = String(secs).padStart(2, '0');
+      if (days <= 7) el.classList.add('urgent');
+    }
+    update();
+    setInterval(update, 1000);
   }
 
   /* ===== SHARE ===== */
@@ -968,6 +1103,7 @@ a { color: inherit; text-decoration: none; }
           '</div>' +
           '<div class="shop-actions">' +
             (s.instagram ? '<a href="' + s.instagram + '" target="_blank" rel="noopener noreferrer" class="shop-btn ig" onclick="event.stopPropagation();">Instagram →</a>' : '') +
+            (s.lat && s.lng ? '<a href="https://www.google.com/maps/dir/?api=1&destination=' + s.lat + ',' + s.lng + (s.addr ? '&destination_place_id=' + encodeURIComponent(s.name) : '') + '" target="_blank" rel="noopener noreferrer" class="shop-btn route" onclick="event.stopPropagation();">経路 ↗</a>' : '') +
             (s.lat && s.lng ? '<button class="shop-btn" onclick="event.stopPropagation();flyToShop(\'' + s.id + '\');">MAP</button>' : '') +
           '</div>' +
         '</div>';
