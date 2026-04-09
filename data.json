@@ -1,0 +1,124 @@
+{
+  "event": {
+    "name": "DAIMYOU CONNECT 2026",
+    "date": "2026.6.6",
+    "day": "SAT",
+    "venue": "FUKUOKA UNITEDLAB",
+    "open": "16:00",
+    "start": "16:30",
+    "price_advance": 5800,
+    "price_door": 6500,
+    "instagram": "https://www.instagram.com/daimyo_connect/",
+    "artists": {
+      "live": [
+        "Rickie-G",
+        "Mummy-D (from RHYMESTER)",
+        "CHOZEN LEE AND THE BANG ATTACK",
+        "NakamuraEmi",
+        "ROWHOO"
+      ],
+      "mc": ["LUE"],
+      "dj": ["KC (from Chomoranma Sound)"]
+    }
+  },
+  "shops": [
+    {
+      "id": "oneday",
+      "name": "晩酌bar ONEDAY",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5902,
+      "lng": 130.3956,
+      "instagram": "https://www.instagram.com/oneday_banshakubar/",
+      "desc": "酒 / 音楽 / ART 語らいの酒場",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "allrush",
+      "name": "PLAY OF ALL RUSH",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5885,
+      "lng": 130.3980,
+      "instagram": "https://www.instagram.com/all_all_rush/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "bankara",
+      "name": "Bankara",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5870,
+      "lng": 130.3940,
+      "instagram": "https://www.instagram.com/bankarafukuoka/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "camotsound",
+      "name": "camotsound",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5850,
+      "lng": 130.3920,
+      "instagram": "https://www.instagram.com/camotsound/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "shocker",
+      "name": "shocker chataya",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5920,
+      "lng": 130.3910,
+      "instagram": "https://www.instagram.com/shocker_chataya/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "nightearpiece",
+      "name": "NIGHTEARPIECE",
+      "area": "福岡市",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5840,
+      "lng": 130.3965,
+      "instagram": "https://www.instagram.com/nightearpiece/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
+      "id": "fumiratch",
+      "name": "DJ FUMIRATCH",
+      "area": "その他",
+      "addr": "",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5830,
+      "lng": 130.4010,
+      "instagram": "https://www.instagram.com/dj_fu_fumiratch/",
+      "desc": "CROSS FM関連",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    }
+  ]
+}

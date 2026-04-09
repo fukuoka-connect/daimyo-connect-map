@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>DAIMYOU CONNECT 2026 | チケット取扱店MAP</title>
+<meta name="description" content="DAIMYOU CONNECT 2026（2026.6.6 SAT @ FUKUOKA UNITEDLAB）チケット取扱店マップ。Rickie-G、Mummy-D、CHOZEN LEE、NakamuraEmi、ROWHOO出演。">
+<meta property="og:title" content="DAIMYOU CONNECT 2026 | チケット取扱店MAP">
+<meta property="og:description" content="2026.6.6 SAT @ FUKUOKA UNITEDLAB｜チケット取扱店を地図で探す">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://fukuoka-connect.github.io/daimyo-connect-map/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #14141f;
+  --bg-card-hover: #1a1a2e;
+  --surface: #1e1e30;
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --text: #e8e6f0;
+  --text-mid: #9a96ab;
+  --text-dim: #5c586a;
+  --accent: #c8a846;
+  --accent-glow: rgba(200,168,70,0.25);
+  --red: #e04040;
+  --green: #32d474;
+  --green-dim: rgba(50,212,116,0.15);
+  --red-dim: rgba(224,64,64,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+}
+.header-inner {
+  max-width: 520px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-size: 0.6rem; font-weight: 900; letter-spacing: 0.25em;
+  color: var(--accent); text-transform: uppercase;
+}
+.logo span { color: var(--text-mid); font-weight: 400; letter-spacing: 0.1em; margin-left: 8px; font-size: 0.55rem; }
+.header-badge {
+  font-size: 0.52rem; font-weight: 700; letter-spacing: 0.15em;
+  padding: 4px 10px; border-radius: 20px;
+  background: var(--accent-glow); color: var(--accent);
+  border: 1px solid rgba(200,168,70,0.2);
+}
+
+/* ===== EVENT BANNER ===== */
+.event-banner {
+  max-width: 520px; margin: 0 auto;
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.event-date {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.3em;
+  color: var(--accent); margin-bottom: 6px;
+}
+.event-title {
+  font-size: 1.5rem; font-weight: 900; letter-spacing: 0.06em;
+  line-height: 1.2; margin-bottom: 10px;
+  background: linear-gradient(135deg, #fff 0%, #c8a846 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.event-meta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 0.7rem; color: var(--text-mid); letter-spacing: 0.04em;
+}
+.event-meta-item { display: flex; align-items: center; gap: 5px; }
+.event-meta-icon { font-size: 0.8rem; }
+.event-artists {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.04em; line-height: 1.9;
+}
+.event-artists strong { color: var(--text-mid); font-weight: 600; }
+
+/* ===== TICKET INFO ===== */
+.ticket-strip {
+  max-width: 520px; margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(200,168,70,0.04);
+}
+.ticket-prices { display: flex; gap: 16px; }
+.ticket-price { font-size: 0.68rem; color: var(--text-mid); }
+.ticket-price strong { color: var(--text); font-weight: 700; }
+.ticket-label {
+  font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--accent); text-transform: uppercase;
+}
+
+/* ===== FILTER ===== */
+.filter-bar {
+  max-width: 520px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; gap: 8px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-btn {
+  flex-shrink: 0;
+  font-family: inherit; font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 7px 16px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text-mid);
+  cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
+.filter-btn.active {
+  background: var(--accent); color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* ===== MAP ===== */
+.map-wrap {
+  max-width: 520px; margin: 0 auto;
+  height: 340px; position: relative;
+  border-bottom: 1px solid var(--border);
+}
+#map { width: 100%; height: 100%; background: var(--bg); }
+.leaflet-control-attribution { font-size: 9px !important; opacity: 0.5; }
+.leaflet-control-zoom a {
+  background: var(--bg-card) !important; color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.map-pin {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+  position: relative;
+}
+.map-pin::after {
+  content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-top: 6px solid var(--pin-color, var(--accent));
+}
+.map-pin:hover { transform: scale(1.2); }
+.map-pin.sold-out { background: var(--text-dim) !important; }
+.map-pin.sold-out::after { border-top-color: var(--text-dim); }
+
+.ticket-badge {
+  position: absolute; top: -6px; right: -8px;
+  min-width: 18px; height: 18px; border-radius: 9px;
+  font-size: 9px; font-weight: 800; line-height: 18px; text-align: center;
+  padding: 0 4px;
+  background: var(--green); color: #000;
+  box-shadow: 0 1px 6px rgba(50,212,116,0.4);
+}
+.ticket-badge.low { background: #f0a030; }
+.ticket-badge.out { background: var(--red); color: #fff; font-size: 7px; letter-spacing: -0.02em; }
+
+/* ===== SHOP LIST ===== */
+.shop-section {
+  max-width: 520px; margin: 0 auto;
+  padding: 16px 20px 100px;
+}
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em;
+  color: var(--text-dim); text-transform: uppercase;
+}
+.shop-count { font-size: 0.6rem; color: var(--text-dim); }
+.shop-count strong { color: var(--accent); }
+
+.shop-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.25s;
+  animation: fadeUp 0.4s ease both;
+}
+.shop-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+.shop-card.sold-out { opacity: 0.5; }
+.shop-card-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 10px;
+}
+.shop-name {
+  font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.shop-area-tag {
+  flex-shrink: 0;
+  font-size: 0.5rem; font-weight: 600; letter-spacing: 0.15em;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(255,255,255,0.04); color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+.shop-desc {
+  font-size: 0.72rem; color: var(--text-mid); line-height: 1.6;
+  margin-bottom: 12px;
+}
+.shop-info-row {
+  font-size: 0.68rem; color: var(--text-dim); line-height: 2;
+}
+.shop-info-row span { color: var(--text-mid); }
+.shop-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.ticket-status {
+  display: flex; align-items: center; gap: 8px;
+}
+.ticket-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+.ticket-dot.low { background: #f0a030; box-shadow: 0 0 8px rgba(240,160,48,0.5); }
+.ticket-dot.out { background: var(--red); box-shadow: 0 0 8px rgba(224,64,64,0.5); }
+.ticket-count {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+}
+.ticket-count .num { font-size: 1rem; color: var(--green); }
+.ticket-count .num.low { color: #f0a030; }
+.ticket-count .num.out { color: var(--red); }
+.ticket-count .unit { color: var(--text-dim); font-weight: 400; margin-left: 2px; font-size: 0.6rem; }
+
+.shop-actions {
+  display: flex; gap: 8px;
+}
+.shop-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-family: inherit; font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 12px; border-radius: 6px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+}
+.shop-btn:hover { border-color: var(--border-hover); color: var(--text); }
+.shop-btn.ig { border-color: rgba(200,168,70,0.2); color: var(--accent); }
+.shop-btn.ig:hover { background: var(--accent-glow); }
+
+/* ===== FOOTER ===== */
+.footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 900;
+  background: rgba(10,10,15,0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+}
+.footer-inner {
+  max-width: 520px; margin: 0 auto;
+  display: flex; gap: 10px;
+}
+.footer-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: inherit; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 12px; border-radius: 8px;
+  border: none; cursor: pointer; transition: all 0.2s;
+}
+.footer-btn.primary {
+  background: var(--accent); color: var(--bg);
+}
+.footer-btn.primary:hover { background: #d4b44e; }
+.footer-btn.secondary {
+  background: var(--surface); color: var(--text-mid);
+  border: 1px solid var(--border);
+}
+.footer-btn.secondary:hover { color: var(--text); border-color: var(--border-hover); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== POPUP ===== */
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--text) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.leaflet-popup-tip { background: var(--bg-card) !important; }
+.popup-name { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+.popup-tickets { font-size: 0.7rem; color: var(--text-mid); }
+.popup-tickets .num { font-weight: 700; color: var(--green); }
+.popup-tickets .num.low { color: #f0a030; }
+.popup-tickets .num.out { color: var(--red); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 520px) {
+  .event-title { font-size: 1.3rem; }
+  .map-wrap { height: 300px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">DAIMYOU CONNECT<span>TICKET MAP</span></div>
+    <div class="header-badge">2026.6.6 SAT</div>
+  </div>
+</header>
+
+<!-- EVENT BANNER -->
+<section class="event-banner">
+  <p class="event-date">2026.6.6 SAT</p>
+  <h1 class="event-title">DAIMYOU CONNECT 2026</h1>
+  <div class="event-meta">
+    <span class="event-meta-item"><span class="event-meta-icon">📍</span>FUKUOKA UNITEDLAB</span>
+    <span class="event-meta-item"><span class="event-meta-icon">🚪</span>OPEN 16:00 / START 16:30</span>
+  </div>
+  <div class="event-artists">
+    <strong>LIVE:</strong> Rickie-G / Mummy-D (from RHYMESTER) / CHOZEN LEE AND THE BANG ATTACK / NakamuraEmi / ROWHOO<br>
+    <strong>MC:</strong> LUE &nbsp; <strong>DJ:</strong> KC (from Chomoranma Sound)
+  </div>
+</section>
+
+<!-- TICKET PRICES -->
+<div class="ticket-strip">
+  <div class="ticket-prices">
+    <span class="ticket-price">先行 <strong>&yen;5,800</strong></span>
+    <span class="ticket-price">一般 <strong>&yen;6,500</strong></span>
+  </div>
+  <span class="ticket-label">TICKET</span>
+</div>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-area="all">すべて</button>
+  <button class="filter-btn" data-area="福岡市">福岡市</button>
+  <button class="filter-btn" data-area="その他">その他</button>
+</div>
+
+<!-- MAP -->
+<div class="map-wrap"><div id="map"></div></div>
+
+<!-- SHOP LIST -->
+<section class="shop-section">
+  <div class="section-header">
+    <span class="section-title">TICKET SHOPS</span>
+    <span class="shop-count"><strong id="visibleCount">0</strong> / <span id="totalCount">0</span></span>
+  </div>
+  <div id="shopList"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="https://www.instagram.com/daimyo_connect/" target="_blank" rel="noopener noreferrer" class="footer-btn secondary">
+      @daimyo_connect
+    </a>
+    <button class="footer-btn primary" onclick="scrollToMap()">
+      MAP で探す ↑
+    </button>
+  </div>
+</footer>
+
+<script>
+(function() {
+  /* ===== DATA ===== */
+  let DATA = null;
+  let map, markers = [], activeArea = 'all';
+
+  /* ===== FETCH DATA ===== */
+  fetch('data.json?' + Date.now())
+    .then(r => r.json())
+    .then(d => { DATA = d; init(); })
+    .catch(() => console.error('data.json load failed'));
+
+  /* ===== INIT ===== */
+  function init() {
+    initMap();
+    renderShops();
+    bindFilters();
+  }
+
+  /* ===== MAP ===== */
+  function initMap() {
+    map = L.map('map', {
+      zoomControl: true,
+      attributionControl: true
+    }).setView([33.588, 130.395], 14);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      maxZoom: 19
+    }).addTo(map);
+
+    addMarkers();
+  }
+
+  function addMarkers() {
+    markers.forEach(m => map.removeLayer(m.layer));
+    markers = [];
+
+    const shops = getFilteredShops();
+    shops.forEach(s => {
+      if (!s.lat || !s.lng) return;
+
+      const rem = s.tickets_remaining;
+      const tot = s.tickets_total;
+      const pct = tot > 0 ? rem / tot : 0;
+      let statusCls = '';
+      let badgeCls = '';
+      let badgeText = rem;
+      if (rem <= 0) { statusCls = 'sold-out'; badgeCls = 'out'; badgeText = 'SOLD'; }
+      else if (pct <= 0.3) { badgeCls = 'low'; }
+
+      const pinColor = rem <= 0 ? '#5c586a' : '#c8a846';
+      const icon = L.divIcon({
+        className: '',
+        html: '<div class="map-pin ' + statusCls + '" style="background:' + pinColor + ';--pin-color:' + pinColor + ';">' +
+              '<span class="ticket-badge ' + badgeCls + '">' + badgeText + '</span>' +
+              '</div>',
+        iconSize: [32, 37],
+        iconAnchor: [16, 37],
+        popupAnchor: [0, -40]
+      });
+
+      const layer = L.marker([s.lat, s.lng], { icon: icon }).addTo(map);
+
+      const numCls = rem <= 0 ? 'out' : pct <= 0.3 ? 'low' : '';
+      layer.bindPopup(
+        '<div class="popup-name">' + s.name + '</div>' +
+        '<div class="popup-tickets">残り <span class="num ' + numCls + '">' + (rem <= 0 ? 'SOLD OUT' : rem + '枚') + '</span></div>',
+        { closeButton: false }
+      );
+      layer.on('mouseover', function() { this.openPopup(); });
+      layer.on('click', function() { scrollToCard(s.id); });
+
+      markers.push({ id: s.id, layer: layer });
+    });
+
+    if (markers.length > 0) {
+      const group = L.featureGroup(markers.map(m => m.layer));
+      map.fitBounds(group.getBounds().pad(0.15));
+    }
+  }
+
+  /* ===== SHOP LIST ===== */
+  function renderShops() {
+    const shops = getFilteredShops();
+    const list = document.getElementById('shopList');
+    list.innerHTML = '';
+
+    document.getElementById('visibleCount').textContent = shops.length;
+    document.getElementById('totalCount').textContent = DATA.shops.length;
+
+    shops.forEach((s, i) => {
+      const rem = s.tickets_remaining;
+      const tot = s.tickets_total;
+      const pct = tot > 0 ? rem / tot : 0;
+      let dotCls = '', numCls = '', statusText = '';
+      if (rem <= 0) { dotCls = 'out'; numCls = 'out'; statusText = 'SOLD OUT'; }
+      else if (pct <= 0.3) { dotCls = 'low'; numCls = 'low'; statusText = rem; }
+      else { statusText = rem; }
+
+      const card = document.createElement('div');
+      card.className = 'shop-card' + (rem <= 0 ? ' sold-out' : '');
+      card.id = 'shop-' + s.id;
+      card.style.animationDelay = (i * 0.04) + 's';
+
+      let infoHtml = '';
+      if (s.addr) infoHtml += '<div class="shop-info-row">📍 <span>' + s.addr + '</span></div>';
+      if (s.tel) infoHtml += '<div class="shop-info-row">📞 <span>' + s.tel + '</span></div>';
+      if (s.hrs) infoHtml += '<div class="shop-info-row">🕐 <span>' + s.hrs + '</span></div>';
+
+      card.innerHTML =
+        '<div class="shop-card-top">' +
+          '<div class="shop-name">' + s.name + '</div>' +
+          '<span class="shop-area-tag">' + s.area + '</span>' +
+        '</div>' +
+        (s.desc ? '<div class="shop-desc">' + s.desc + '</div>' : '') +
+        infoHtml +
+        '<div class="shop-bottom">' +
+          '<div class="ticket-status">' +
+            '<span class="ticket-dot ' + dotCls + '"></span>' +
+            '<span class="ticket-count">' +
+              (rem <= 0
+                ? '<span class="num out">SOLD OUT</span>'
+                : '残り <span class="num ' + numCls + '">' + statusText + '</span><span class="unit">枚</span>'
+              ) +
+            '</span>' +
+          '</div>' +
+          '<div class="shop-actions">' +
+            (s.instagram ? '<a href="' + s.instagram + '" target="_blank" rel="noopener noreferrer" class="shop-btn ig" onclick="event.stopPropagation();">Instagram →</a>' : '') +
+            (s.lat && s.lng ? '<button class="shop-btn" onclick="event.stopPropagation();flyToShop(\'' + s.id + '\');">MAP</button>' : '') +
+          '</div>' +
+        '</div>';
+
+      card.addEventListener('click', function() {
+        if (s.instagram) window.open(s.instagram, '_blank');
+      });
+
+      list.appendChild(card);
+    });
+  }
+
+  /* ===== FILTER ===== */
+  function bindFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        activeArea = this.dataset.area;
+        addMarkers();
+        renderShops();
+      });
+    });
+  }
+
+  function getFilteredShops() {
+    if (!DATA) return [];
+    if (activeArea === 'all') return DATA.shops;
+    return DATA.shops.filter(s => s.area === activeArea);
+  }
+
+  /* ===== ACTIONS ===== */
+  window.flyToShop = function(id) {
+    const s = DATA.shops.find(x => x.id === id);
+    if (s && s.lat && s.lng) {
+      map.flyTo([s.lat, s.lng], 16, { duration: 0.8 });
+      const m = markers.find(x => x.id === id);
+      if (m) setTimeout(() => m.layer.openPopup(), 800);
+    }
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  window.scrollToMap = function() {
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  function scrollToCard(id) {
+    const el = document.getElementById('shop-' + id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.borderColor = 'var(--accent)';
+      setTimeout(() => { el.style.borderColor = ''; }, 2000);
+    }
+  }
+})();
+</script>
+</body>
+</html>
