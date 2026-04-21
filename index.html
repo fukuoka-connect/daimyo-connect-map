@@ -936,23 +936,23 @@ a { color: inherit; text-decoration: none; }
 
 .sponsors-grid {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 .tier-major .sponsors-grid { grid-template-columns: 1fr; }
 .tier-middle .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
-.tier-regular .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+.tier-regular .sponsors-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .tier-cooperation .sponsors-grid { grid-template-columns: 1fr; }
 
 .sponsor-card {
   background: #fff;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
-  padding: 18px 14px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px;
+  padding: 12px 8px 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  gap: 6px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
-  min-height: 140px;
+  min-height: 130px;
   text-decoration: none; color: #333;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   overflow: hidden;
@@ -964,12 +964,15 @@ a.sponsor-card:hover {
 .sponsor-logo-wrap {
   flex: 1;
   display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 90px;
+  width: 100%;
+  min-height: 0;
 }
 .sponsor-card img {
-  max-width: 100%; max-height: 90px;
-  width: auto; height: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
   object-fit: contain;
+  display: block;
 }
 .sponsor-placeholder {
   font-size: 0.85rem; font-weight: 800; color: #444;
@@ -978,36 +981,37 @@ a.sponsor-card:hover {
   line-height: 1.4;
 }
 .sponsor-name {
-  font-size: 0.68rem; color: #555;
+  font-size: 0.58rem; color: #666;
   letter-spacing: 0.02em;
-  line-height: 1.4;
+  line-height: 1.3;
   word-break: break-word;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 /* tier別カードサイズ */
 .tier-major .sponsor-card {
-  min-height: 220px;
-  padding: 28px 20px;
+  min-height: 240px;
+  padding: 24px 20px 18px;
   border: 2px solid rgba(255,212,117,0.5);
   box-shadow: 0 4px 20px rgba(255,170,64,0.3), 0 0 0 1px rgba(255,212,117,0.3);
 }
-.tier-major .sponsor-logo-wrap { height: 150px; }
-.tier-major .sponsor-card img { max-height: 150px; }
-.tier-major .sponsor-name { font-size: 0.8rem; }
+.tier-major .sponsor-logo-wrap { min-height: 170px; }
+.tier-major .sponsor-name { font-size: 0.85rem; margin-top: 6px; }
 
-.tier-middle .sponsor-card { min-height: 150px; }
-.tier-middle .sponsor-logo-wrap { height: 95px; }
-.tier-middle .sponsor-card img { max-height: 95px; }
+.tier-middle .sponsor-card { min-height: 160px; padding: 16px 12px 10px; }
+.tier-middle .sponsor-logo-wrap { min-height: 105px; }
+.tier-middle .sponsor-name { font-size: 0.65rem; }
 
-.tier-regular .sponsor-card { min-height: 140px; padding: 16px 12px; }
-.tier-regular .sponsor-logo-wrap { height: 85px; }
-.tier-regular .sponsor-card img { max-height: 85px; }
-.tier-regular .sponsor-name { font-size: 0.65rem; }
+.tier-regular .sponsor-card {
+  min-height: 120px;
+  padding: 10px 6px 6px;
+}
+.tier-regular .sponsor-logo-wrap { min-height: 82px; }
+.tier-regular .sponsor-name { font-size: 0.52rem; }
 
-.tier-cooperation .sponsor-card { min-height: 150px; padding: 20px 16px; }
-.tier-cooperation .sponsor-logo-wrap { height: 95px; }
-.tier-cooperation .sponsor-card img { max-height: 95px; }
+.tier-cooperation .sponsor-card { min-height: 160px; padding: 20px 16px 14px; }
+.tier-cooperation .sponsor-logo-wrap { min-height: 105px; }
 
 .sponsors-empty {
   text-align: center;
