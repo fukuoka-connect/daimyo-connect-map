@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>DAIMYOU CONNECT 2026 | チケット取扱店MAP</title>
-<meta name="description" content="DAIMYOU CONNECT 2026（2026.6.6 SAT @ FUKUOKA UNITEDLAB）チケット取扱店マップ。Rickie-G、Mummy-D、CHOZEN LEE、NakamuraEmi、ROWHOO出演。">
+<meta name="description" content="DAIMYOU CONNECT 2026（2026.6.6 SAT @ FUKUOKA UNITEDLAB）チケット取扱店マップ。Rickie-G、Mummy-D、CHOZEN LEE、NakamuraEmi、ROWHOO、MC LUE、KC（Chomoranma）、DJ KEN5、HOMERUN SOUND、naruho 出演。">
 <meta property="og:title" content="DAIMYOU CONNECT 2026 | チケット取扱店MAP">
 <meta property="og:description" content="2026.6.6 SAT @ FUKUOKA UNITEDLAB｜チケット取扱店を地図で探す">
 <meta property="og:type" content="website">
@@ -362,15 +362,15 @@ a { color: inherit; text-decoration: none; }
 .map-pin.sold-out::after { border-top-color: var(--text-dim); }
 
 .ticket-badge {
-  position: absolute; top: -6px; right: -8px;
-  min-width: 18px; height: 18px; border-radius: 9px;
-  font-size: 9px; font-weight: 800; line-height: 18px; text-align: center;
+  position: absolute; top: -7px; right: -8px;
+  min-width: 20px; height: 20px; border-radius: 10px;
+  font-size: 13px; font-weight: 900; line-height: 20px; text-align: center;
   padding: 0 4px;
   background: #5eeaa0; color: #0a0a0f;
   box-shadow: 0 1px 6px rgba(94,234,160,0.4);
 }
 .ticket-badge.low { background: #ffaa40; color: #1a0e1e; }
-.ticket-badge.out { background: #ff5c5c; color: #fff; font-size: 7px; letter-spacing: -0.02em; }
+.ticket-badge.out { background: #ff5c5c; color: #fff; }
 
 /* ===== SHOP LIST ===== */
 .shop-section {
@@ -387,6 +387,24 @@ a { color: inherit; text-decoration: none; }
 }
 .shop-count { font-size: 0.6rem; color: var(--text-dim); }
 .shop-count strong { color: var(--accent); }
+
+.ticket-legend {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  font-size: 0.66rem; color: var(--text-mid);
+  letter-spacing: 0.04em;
+}
+.ticket-legend-item { display: flex; align-items: center; gap: 6px; }
+.ticket-legend-item .sym {
+  font-size: 1.1rem; font-weight: 900; line-height: 1;
+}
+.ticket-legend-item .sym.ok { color: #5eeaa0; }
+.ticket-legend-item .sym.low { color: #ffaa40; }
+.ticket-legend-item .sym.out { color: #ff5c5c; }
 
 .shop-card {
   background: rgba(0,0,0,0.25);
@@ -445,11 +463,15 @@ a { color: inherit; text-decoration: none; }
 .ticket-dot.out { background: #ff5c5c; box-shadow: 0 0 8px rgba(255,92,92,0.5); }
 .ticket-count {
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 6px;
 }
-.ticket-count .num { font-size: 1rem; color: #5eeaa0; }
+.ticket-count .num {
+  font-size: 1.45rem; color: #5eeaa0; line-height: 1;
+  font-weight: 900;
+}
 .ticket-count .num.low { color: #ffaa40; }
 .ticket-count .num.out { color: #ff5c5c; }
-.ticket-count .unit { color: var(--text-dim); font-weight: 400; margin-left: 2px; font-size: 0.6rem; }
+.ticket-count .unit { color: var(--text-mid); font-weight: 600; font-size: 0.68rem; letter-spacing: 0.06em; }
 
 .shop-actions {
   display: flex; gap: 8px;
@@ -612,8 +634,8 @@ a { color: inherit; text-decoration: none; }
 /* ===== TABS ===== */
 .tab-bar {
   max-width: 520px; margin: 0 auto;
-  display: flex; gap: 10px;
-  padding: 14px 16px;
+  display: flex; gap: 6px;
+  padding: 12px 12px;
   background: rgba(0,0,0,0.28);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
@@ -621,21 +643,22 @@ a { color: inherit; text-decoration: none; }
 .tab-btn {
   flex: 1;
   min-height: 56px;
-  padding: 12px 14px;
-  font-family: inherit; font-size: 0.92rem; font-weight: 800;
-  letter-spacing: 0.04em;
+  padding: 10px 8px;
+  font-family: inherit; font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.02em;
   color: var(--text-mid);
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   cursor: pointer;
   transition: transform 0.18s, background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  white-space: nowrap;
 }
 .tab-btn .tab-icon {
-  font-size: 1.15rem; line-height: 1;
+  font-size: 1.05rem; line-height: 1;
   filter: grayscale(0.2);
   transition: filter 0.2s, transform 0.2s;
 }
@@ -738,6 +761,9 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.48rem; font-weight: 700; letter-spacing: 0.12em;
   padding: 3px 8px; border-radius: 4px;
   text-transform: uppercase;
+  white-space: nowrap;
+  min-width: 40px;
+  text-align: center;
 }
 .artist-tag.live { background: rgba(255,170,64,0.15); color: #ffaa40; }
 .artist-tag.mc { background: rgba(94,234,160,0.12); color: #5eeaa0; }
@@ -815,10 +841,113 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
+/* ===== SPONSORS ===== */
+.sponsors-section {
+  max-width: 520px; margin: 0 auto;
+  padding: 20px 20px 100px;
+}
+.sponsors-lead {
+  font-size: 0.78rem; color: var(--text-mid);
+  line-height: 1.7; margin-bottom: 18px;
+  text-align: center;
+}
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.sponsor-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px 14px 16px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  min-height: 130px;
+  text-decoration: none; color: inherit;
+}
+a.sponsor-card:hover {
+  background: rgba(255,212,117,0.08);
+  border-color: rgba(255,212,117,0.35);
+  transform: translateY(-2px);
+}
+.sponsor-logo-wrap {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 70px;
+}
+.sponsor-card img {
+  max-width: 100%; max-height: 70px;
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.sponsor-placeholder {
+  font-size: 0.82rem; font-weight: 800; color: var(--text);
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(255,212,117,0.14), rgba(255,170,64,0.08));
+  border: 1px dashed rgba(255,170,64,0.3);
+  border-radius: 8px;
+  line-height: 1.4;
+}
+.sponsor-name {
+  font-size: 0.68rem; color: var(--text-mid);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.sponsors-empty {
+  text-align: center;
+  padding: 48px 20px;
+  font-size: 0.82rem; color: var(--text-dim);
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  border: 1px dashed rgba(255,255,255,0.15);
+  line-height: 1.8;
+}
+.sponsors-empty strong {
+  display: block;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+.sponsors-cta {
+  margin-top: 20px;
+  padding: 18px 16px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,212,117,0.2);
+  text-align: center;
+}
+.sponsors-cta-title {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--accent); text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.sponsors-cta-text {
+  font-size: 0.72rem; color: var(--text-mid); line-height: 1.7;
+  margin-bottom: 12px;
+}
+.sponsors-cta-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #ffd475, #ffaa40);
+  color: #1a0e1e; border-radius: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 12px rgba(255,170,64,0.25);
+}
+.sponsors-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,170,64,0.35); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 520px) {
   .event-title { font-size: 1.3rem; }
   .map-wrap { height: 300px; }
+  .tab-btn { font-size: 0.72rem; padding: 10px 4px; }
+  .tab-btn .tab-icon { font-size: 0.95rem; }
 }
 </style>
 </head>
@@ -876,6 +1005,7 @@ a { color: inherit; text-decoration: none; }
   <div class="ticket-prices">
     <span class="ticket-price">先行 <strong>&yen;5,800</strong></span>
     <span class="ticket-price">一般 <strong>&yen;6,500</strong></span>
+    <span class="ticket-price">当日 <strong>&yen;7,500</strong></span>
   </div>
   <span class="ticket-label">TICKET</span>
 </div>
@@ -896,6 +1026,7 @@ a { color: inherit; text-decoration: none; }
 <div class="tab-bar">
   <button class="tab-btn active" data-tab="map"><span class="tab-icon">📍</span>取扱店MAP</button>
   <button class="tab-btn" data-tab="event"><span class="tab-icon">🎫</span>イベント詳細</button>
+  <button class="tab-btn" data-tab="sponsors"><span class="tab-icon">🤝</span>協賛企業</button>
 </div>
 
 <!-- TAB: MAP -->
@@ -910,6 +1041,11 @@ a { color: inherit; text-decoration: none; }
     <div class="section-header">
       <span class="section-title">TICKET SHOPS</span>
       <span class="shop-count"><strong id="visibleCount">0</strong> / <span id="totalCount">0</span></span>
+    </div>
+    <div class="ticket-legend">
+      <span class="ticket-legend-item"><span class="sym ok">○</span> 販売中</span>
+      <span class="ticket-legend-item"><span class="sym low">△</span> 残りわずか</span>
+      <span class="ticket-legend-item"><span class="sym out">×</span> 完売</span>
     </div>
     <div id="shopList"></div>
   </section>
@@ -948,8 +1084,20 @@ a { color: inherit; text-decoration: none; }
           <div><span class="artist-name">LUE</span></div>
         </li>
         <li class="artist-item">
+          <span class="artist-tag dj">SELECTOR / DJ</span>
+          <div><span class="artist-name">KC</span><br><span class="artist-sub">from Chomoranma</span></div>
+        </li>
+        <li class="artist-item">
           <span class="artist-tag dj">DJ</span>
-          <div><span class="artist-name">KC</span><br><span class="artist-sub">from Chomoranma Sound</span></div>
+          <div><span class="artist-name">DJ KEN5</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag dj">DJ</span>
+          <div><span class="artist-name">HOMERUN SOUND</span></div>
+        </li>
+        <li class="artist-item">
+          <span class="artist-tag dj">DJ</span>
+          <div><span class="artist-name">naruho</span></div>
         </li>
       </ul>
     </div>
@@ -988,19 +1136,51 @@ a { color: inherit; text-decoration: none; }
     <div class="detail-block">
       <div class="detail-block-title">TICKET</div>
       <div class="info-grid">
-        <span class="info-label">ADV</span>
+        <span class="info-label">先行 / ADV</span>
         <span class="info-value price">&yen;5,800</span>
-        <span class="info-label">DOOR</span>
+        <span class="info-label">一般</span>
         <span class="info-value price">&yen;6,500</span>
+        <span class="info-label">当日 / DOOR</span>
+        <span class="info-value price">&yen;7,500</span>
       </div>
       <a href="https://eplus.jp/sf/detail/4263320001-P0030002?P6=001&P1=0402&P59=1" target="_blank" rel="noopener noreferrer" class="eplus-btn">
         e+ でチケットを購入 →
       </a>
       <div class="detail-note">
-        ※ 店頭でも販売中。TICKET MAP タブから最寄りの取扱店を探せます。
+        ※ 店頭でも販売中。TICKET MAP タブから最寄りの取扱店を探せます。<br>
+        ※ 入場時に別途ドリンク代 <strong>&yen;600</strong> が必要です。<br>
+        ※ 中学生以下は入場無料（要保護者同伴）。<br>
+        ※ 先行チケットは残り枚数に関わらず完売している場合がございます。<br>
+        &nbsp;&nbsp;&nbsp;取扱店舗まで事前にお問い合わせください。
       </div>
     </div>
 
+  </section>
+</div>
+
+<!-- TAB: SPONSORS -->
+<div class="tab-panel" id="panel-sponsors">
+  <section class="sponsors-section">
+    <div class="detail-block">
+      <div class="detail-block-title">SPONSORS</div>
+      <p class="sponsors-lead">DAIMYOU CONNECT 2026 は<br>下記の企業・団体様のご協賛により開催されます。</p>
+      <div class="sponsors-grid" id="sponsorsGrid"></div>
+      <div class="sponsors-empty" id="sponsorsEmpty" style="display:none">
+        <strong>COMING SOON</strong>
+        協賛企業情報は準備中です。<br>
+        公開まで今しばらくお待ちください。
+      </div>
+      <div class="sponsors-cta">
+        <div class="sponsors-cta-title">SPONSORSHIP</div>
+        <div class="sponsors-cta-text">
+          イベント協賛のご相談を受け付けております。<br>
+          お気軽に公式 Instagram までご連絡ください。
+        </div>
+        <a href="https://www.instagram.com/daimyo_connect/" target="_blank" rel="noopener noreferrer" class="sponsors-cta-btn">
+          @daimyo_connect へ DM
+        </a>
+      </div>
+    </div>
   </section>
 </div>
 
@@ -1008,6 +1188,7 @@ a { color: inherit; text-decoration: none; }
 <div class="tab-bar tab-bar-bottom">
   <button class="tab-btn" data-tab="map"><span class="tab-icon">📍</span>取扱店MAP</button>
   <button class="tab-btn" data-tab="event"><span class="tab-icon">🎫</span>イベント詳細</button>
+  <button class="tab-btn" data-tab="sponsors"><span class="tab-icon">🤝</span>協賛企業</button>
 </div>
 
 <!-- SHARE (最下層) -->
@@ -1065,10 +1246,37 @@ a { color: inherit; text-decoration: none; }
     initMap();
     renderShops();
     renderProgress();
+    renderSponsors();
     bindFilters();
     bindTabs();
     bindShare();
     startCountdown();
+  }
+
+  /* ===== SPONSORS ===== */
+  function renderSponsors() {
+    var grid = document.getElementById('sponsorsGrid');
+    var empty = document.getElementById('sponsorsEmpty');
+    if (!grid) return;
+    var sponsors = (DATA && Array.isArray(DATA.sponsors)) ? DATA.sponsors : [];
+    if (sponsors.length === 0) {
+      grid.style.display = 'none';
+      if (empty) empty.style.display = 'block';
+      return;
+    }
+    grid.style.display = 'grid';
+    if (empty) empty.style.display = 'none';
+    grid.innerHTML = sponsors.map(function(sp) {
+      var logoHtml = sp.logo
+        ? '<div class="sponsor-logo-wrap"><img src="' + sp.logo + '" alt="' + (sp.name || '') + ' ロゴ" loading="lazy"></div>'
+        : '<div class="sponsor-logo-wrap"><div class="sponsor-placeholder">' + (sp.name || 'COMING SOON') + '</div></div>';
+      var nameHtml = sp.name ? '<div class="sponsor-name">' + sp.name + '</div>' : '';
+      var inner = logoHtml + nameHtml;
+      if (sp.url) {
+        return '<a href="' + sp.url + '" target="_blank" rel="noopener noreferrer" class="sponsor-card">' + inner + '</a>';
+      }
+      return '<div class="sponsor-card">' + inner + '</div>';
+    }).join('');
   }
 
   /* ===== COUNTDOWN ===== */
@@ -1186,9 +1394,9 @@ a { color: inherit; text-decoration: none; }
       const pct = tot > 0 ? rem / tot : 0;
       let statusCls = '';
       let badgeCls = '';
-      let badgeText = rem;
-      if (rem <= 0) { statusCls = 'sold-out'; badgeCls = 'out'; badgeText = 'SOLD'; }
-      else if (pct <= 0.3) { badgeCls = 'low'; }
+      let badgeText = '○';
+      if (rem <= 0) { statusCls = 'sold-out'; badgeCls = 'out'; badgeText = '×'; }
+      else if (pct <= 0.3) { badgeCls = 'low'; badgeText = '△'; }
 
       const pinColor = rem <= 0 ? '#999' : '#d4400a';
       const icon = L.divIcon({
@@ -1204,9 +1412,10 @@ a { color: inherit; text-decoration: none; }
       const layer = L.marker([s.lat, s.lng], { icon: icon }).addTo(map);
 
       const numCls = rem <= 0 ? 'out' : pct <= 0.3 ? 'low' : '';
+      const popupSymbol = rem <= 0 ? '× 完売' : (pct <= 0.3 ? '△ 残りわずか' : '○ 販売中');
       layer.bindPopup(
         '<div class="popup-name">' + s.name + '</div>' +
-        '<div class="popup-tickets">残り <span class="num ' + numCls + '">' + (rem <= 0 ? 'SOLD OUT' : rem + '枚') + '</span></div>',
+        '<div class="popup-tickets">チケット <span class="num ' + numCls + '">' + popupSymbol + '</span></div>',
         { closeButton: false }
       );
       layer.on('mouseover', function() { this.openPopup(); });
@@ -1234,10 +1443,10 @@ a { color: inherit; text-decoration: none; }
       const rem = s.tickets_remaining;
       const tot = s.tickets_total;
       const pct = tot > 0 ? rem / tot : 0;
-      let dotCls = '', numCls = '', statusText = '';
-      if (rem <= 0) { dotCls = 'out'; numCls = 'out'; statusText = 'SOLD OUT'; }
-      else if (pct <= 0.3) { dotCls = 'low'; numCls = 'low'; statusText = rem; }
-      else { statusText = rem; }
+      let dotCls = '', numCls = '', statusSymbol = '', statusLabel = '';
+      if (rem <= 0) { dotCls = 'out'; numCls = 'out'; statusSymbol = '×'; statusLabel = '完売'; }
+      else if (pct <= 0.3) { dotCls = 'low'; numCls = 'low'; statusSymbol = '△'; statusLabel = '残りわずか'; }
+      else { statusSymbol = '○'; statusLabel = '販売中'; }
 
       const card = document.createElement('div');
       card.className = 'shop-card' + (rem <= 0 ? ' sold-out' : '');
@@ -1260,10 +1469,8 @@ a { color: inherit; text-decoration: none; }
           '<div class="ticket-status">' +
             '<span class="ticket-dot ' + dotCls + '"></span>' +
             '<span class="ticket-count">' +
-              (rem <= 0
-                ? '<span class="num out">SOLD OUT</span>'
-                : '残り <span class="num ' + numCls + '">' + statusText + '</span><span class="unit">枚</span>'
-              ) +
+              '<span class="num ' + numCls + '">' + statusSymbol + '</span>' +
+              '<span class="unit">' + statusLabel + '</span>' +
             '</span>' +
           '</div>' +
           '<div class="shop-actions">' +
