@@ -911,10 +911,17 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 28px;
 }
 .sponsor-tier-head {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: baseline; justify-content: center; gap: 10px;
   margin-bottom: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,212,117,0.18);
+}
+.sponsor-tier-label {
+  font-size: 1rem; font-weight: 900; letter-spacing: 0.14em;
+  font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
+  background: linear-gradient(135deg, #fff 0%, #a8ffd8 70%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .sponsor-tier-en {
   font-size: 0.75rem; font-weight: 900; letter-spacing: 0.28em;
@@ -1350,7 +1357,7 @@ a.sponsor-card:hover {
       { key: 'major', en: 'MAJOR SPONSOR', cls: 'tier-major' },
       { key: 'middle', en: 'MIDDLE SPONSOR', cls: 'tier-middle' },
       { key: 'regular', en: 'SPONSOR', cls: 'tier-regular' },
-      { key: 'cooperation', en: 'COOPERATION', cls: 'tier-cooperation' }
+      { key: 'cooperation', label: '協力', en: 'COOPERATION', cls: 'tier-cooperation' }
     ];
     var hasAny = false;
     if (sp && typeof sp === 'object' && !Array.isArray(sp)) {
@@ -1379,9 +1386,11 @@ a.sponsor-card:hover {
     root.innerHTML = tiers.map(function(t) {
       var items = (sp[t.key] || []);
       if (!items.length) return '';
+      var labelHtml = t.label ? '<span class="sponsor-tier-label">' + t.label + '</span>' : '';
       return (
         '<div class="sponsor-tier ' + t.cls + '">' +
           '<div class="sponsor-tier-head">' +
+            labelHtml +
             '<span class="sponsor-tier-en">' + t.en + '</span>' +
           '</div>' +
           '<div class="sponsors-grid">' +
