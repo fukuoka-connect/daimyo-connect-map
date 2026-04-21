@@ -35,7 +35,6 @@
     "middle": [
       { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
       { "name": "MEAT PLUS", "logo": "sponsors/meat-plus.jpg" },
-      { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
       { "name": "The Forward Base inc", "logo": "sponsors/forward-base.png" },
       { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
       { "name": "アート＆ヘルスケア株式会社", "logo": "sponsors/art-healthcare.jpg" },
@@ -44,15 +43,17 @@
       { "name": "有限会社古西産業", "logo": "sponsors/furunishi.png" }
     ],
     "regular": [
-      { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
-      { "name": "BRUNT JET", "logo": "sponsors/brunt-jet.jpg" },
-      { "name": "Green Beach House", "logo": "sponsors/green-beach.png" },
-      { "name": "Herbay", "logo": "sponsors/herbay.png" },
-      { "name": "node", "logo": "sponsors/node.jpg" },
+      { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
+      { "name": "酒場コージ" },
       { "name": "ぽん太", "logo": "sponsors/ponta.png" },
-      { "name": "大名酒場 駒たか男", "logo": "sponsors/komatakao.jpg" },
+      { "name": "駒たか男", "logo": "sponsors/komatakao.jpg" },
+      { "name": "Green Beach House", "logo": "sponsors/green-beach.png" },
+      { "name": "BRUNT JET", "logo": "sponsors/brunt-jet.jpg" },
+      { "name": "株式会社フォースターセキュリティ", "logo": "sponsors/forstar.jpg" },
+      { "name": "node", "logo": "sponsors/node.jpg" },
       { "name": "株式会社Valore", "logo": "sponsors/valore.png" },
-      { "name": "株式会社フォースターセキュリティ", "logo": "sponsors/forstar.jpg" }
+      { "name": "アフロタコス" },
+      { "name": "Herbay", "logo": "sponsors/herbay.png" }
     ],
     "cooperation": [
       { "name": "CROSSFM", "logo": "sponsors/crossfm.png" }

@@ -911,25 +911,21 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 28px;
 }
 .sponsor-tier-head {
-  display: flex; align-items: baseline; justify-content: center; gap: 10px;
+  display: flex; align-items: center; justify-content: center;
   margin-bottom: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,212,117,0.18);
 }
-.sponsor-tier-label {
-  font-size: 1rem; font-weight: 900; letter-spacing: 0.12em;
-  font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
+.sponsor-tier-en {
+  font-size: 0.75rem; font-weight: 900; letter-spacing: 0.28em;
+  text-transform: uppercase;
   background: linear-gradient(135deg, #fff 0%, #ffd475 60%, #ffaa40 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.sponsor-tier-en {
-  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em;
-  color: var(--text-dim); text-transform: uppercase;
-}
-.sponsor-tier.tier-major .sponsor-tier-label { font-size: 1.25rem; }
+.sponsor-tier.tier-major .sponsor-tier-en { font-size: 0.95rem; }
 .sponsor-tier.tier-cooperation .sponsor-tier-head { border-bottom-color: rgba(255,255,255,0.12); }
-.sponsor-tier.tier-cooperation .sponsor-tier-label {
+.sponsor-tier.tier-cooperation .sponsor-tier-en {
   background: linear-gradient(135deg, #fff 0%, #a8ffd8 70%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
@@ -991,12 +987,12 @@ a.sponsor-card:hover {
 
 /* tier別カードサイズ */
 .tier-major .sponsor-card {
-  min-height: 240px;
-  padding: 24px 20px 18px;
+  min-height: 180px;
+  padding: 20px 20px 14px;
   border: 2px solid rgba(255,212,117,0.5);
   box-shadow: 0 4px 20px rgba(255,170,64,0.3), 0 0 0 1px rgba(255,212,117,0.3);
 }
-.tier-major .sponsor-logo-wrap { min-height: 170px; }
+.tier-major .sponsor-logo-wrap { min-height: 120px; height: 120px; }
 .tier-major .sponsor-name { font-size: 0.85rem; margin-top: 6px; }
 
 .tier-middle .sponsor-card { min-height: 160px; padding: 16px 12px 10px; }
@@ -1004,11 +1000,11 @@ a.sponsor-card:hover {
 .tier-middle .sponsor-name { font-size: 0.65rem; }
 
 .tier-regular .sponsor-card {
-  min-height: 120px;
-  padding: 10px 6px 6px;
+  min-height: 90px;
+  padding: 8px 6px 6px;
 }
-.tier-regular .sponsor-logo-wrap { min-height: 82px; }
-.tier-regular .sponsor-name { font-size: 0.52rem; }
+.tier-regular .sponsor-logo-wrap { min-height: 58px; height: 58px; }
+.tier-regular .sponsor-name { font-size: 0.5rem; }
 
 .tier-cooperation .sponsor-card { min-height: 160px; padding: 20px 16px 14px; }
 .tier-cooperation .sponsor-logo-wrap { min-height: 105px; }
@@ -1351,10 +1347,10 @@ a.sponsor-card:hover {
     if (!root) return;
     var sp = DATA && DATA.sponsors;
     var tiers = [
-      { key: 'major', label: '大協賛', en: 'MAJOR SPONSOR', cls: 'tier-major' },
-      { key: 'middle', label: '中協賛', en: 'MIDDLE SPONSOR', cls: 'tier-middle' },
-      { key: 'regular', label: '協賛', en: 'SPONSOR', cls: 'tier-regular' },
-      { key: 'cooperation', label: '協力', en: 'COOPERATION', cls: 'tier-cooperation' }
+      { key: 'major', en: 'MAJOR SPONSOR', cls: 'tier-major' },
+      { key: 'middle', en: 'MIDDLE SPONSOR', cls: 'tier-middle' },
+      { key: 'regular', en: 'SPONSOR', cls: 'tier-regular' },
+      { key: 'cooperation', en: 'COOPERATION', cls: 'tier-cooperation' }
     ];
     var hasAny = false;
     if (sp && typeof sp === 'object' && !Array.isArray(sp)) {
@@ -1386,7 +1382,6 @@ a.sponsor-card:hover {
       return (
         '<div class="sponsor-tier ' + t.cls + '">' +
           '<div class="sponsor-tier-head">' +
-            '<span class="sponsor-tier-label">' + t.label + '</span>' +
             '<span class="sponsor-tier-en">' + t.en + '</span>' +
           '</div>' +
           '<div class="sponsors-grid">' +
