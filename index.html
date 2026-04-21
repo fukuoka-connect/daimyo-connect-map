@@ -846,58 +846,120 @@ a { color: inherit; text-decoration: none; }
   max-width: 520px; margin: 0 auto;
   padding: 20px 20px 100px;
 }
+.sponsors-intro {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.sponsors-intro .detail-block-title { margin-bottom: 10px; }
 .sponsors-lead {
   font-size: 0.78rem; color: var(--text-mid);
-  line-height: 1.7; margin-bottom: 18px;
-  text-align: center;
+  line-height: 1.7;
 }
+.sponsor-tier {
+  margin-bottom: 28px;
+}
+.sponsor-tier-head {
+  display: flex; align-items: baseline; justify-content: center; gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,212,117,0.18);
+}
+.sponsor-tier-label {
+  font-size: 1rem; font-weight: 900; letter-spacing: 0.12em;
+  font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
+  background: linear-gradient(135deg, #fff 0%, #ffd475 60%, #ffaa40 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sponsor-tier-en {
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.22em;
+  color: var(--text-dim); text-transform: uppercase;
+}
+.sponsor-tier.tier-major .sponsor-tier-label { font-size: 1.25rem; }
+.sponsor-tier.tier-cooperation .sponsor-tier-head { border-bottom-color: rgba(255,255,255,0.12); }
+.sponsor-tier.tier-cooperation .sponsor-tier-label {
+  background: linear-gradient(135deg, #fff 0%, #a8ffd8 70%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
 .sponsors-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
+.tier-major .sponsors-grid { grid-template-columns: 1fr; }
+.tier-middle .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+.tier-regular .sponsors-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tier-cooperation .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+
 .sponsor-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
-  padding: 20px 14px 16px;
+  padding: 14px 10px;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px;
+  gap: 8px;
   text-align: center;
-  transition: transform 0.2s, background 0.2s, border-color 0.2s;
-  min-height: 130px;
-  text-decoration: none; color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 110px;
+  text-decoration: none; color: #333;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 a.sponsor-card:hover {
-  background: rgba(255,212,117,0.08);
-  border-color: rgba(255,212,117,0.35);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,170,64,0.25), 0 0 0 2px rgba(255,212,117,0.5);
 }
 .sponsor-logo-wrap {
   flex: 1;
   display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 70px;
+  width: 100%; height: 68px;
 }
 .sponsor-card img {
-  max-width: 100%; max-height: 70px;
+  max-width: 100%; max-height: 68px;
   width: auto; height: auto;
   object-fit: contain;
 }
 .sponsor-placeholder {
-  font-size: 0.82rem; font-weight: 800; color: var(--text);
+  font-size: 0.78rem; font-weight: 800; color: #444;
   letter-spacing: 0.04em;
-  padding: 8px 12px;
-  background: linear-gradient(135deg, rgba(255,212,117,0.14), rgba(255,170,64,0.08));
-  border: 1px dashed rgba(255,170,64,0.3);
-  border-radius: 8px;
+  padding: 10px 12px;
   line-height: 1.4;
 }
 .sponsor-name {
-  font-size: 0.68rem; color: var(--text-mid);
-  letter-spacing: 0.04em;
+  font-size: 0.62rem; color: #555;
+  letter-spacing: 0.02em;
   line-height: 1.4;
   word-break: break-word;
+  font-weight: 600;
 }
+
+/* tier別カードサイズ */
+.tier-major .sponsor-card {
+  min-height: 170px;
+  padding: 20px 16px;
+  border: 2px solid rgba(255,212,117,0.5);
+  box-shadow: 0 4px 20px rgba(255,170,64,0.3), 0 0 0 1px rgba(255,212,117,0.3);
+}
+.tier-major .sponsor-logo-wrap { height: 110px; }
+.tier-major .sponsor-card img { max-height: 110px; }
+.tier-major .sponsor-name { font-size: 0.75rem; }
+
+.tier-middle .sponsor-card { min-height: 120px; }
+.tier-middle .sponsor-logo-wrap { height: 70px; }
+.tier-middle .sponsor-card img { max-height: 70px; }
+
+.tier-regular .sponsor-card {
+  min-height: 95px;
+  padding: 10px 6px;
+}
+.tier-regular .sponsor-logo-wrap { height: 50px; }
+.tier-regular .sponsor-card img { max-height: 50px; }
+.tier-regular .sponsor-name { font-size: 0.55rem; }
+
+.tier-cooperation .sponsor-card { min-height: 100px; }
+.tier-cooperation .sponsor-logo-wrap { height: 60px; }
+.tier-cooperation .sponsor-card img { max-height: 60px; }
+
 .sponsors-empty {
   text-align: center;
   padding: 48px 20px;
@@ -1133,15 +1195,15 @@ a.sponsor-card:hover {
 <!-- TAB: SPONSORS -->
 <div class="tab-panel" id="panel-sponsors">
   <section class="sponsors-section">
-    <div class="detail-block">
+    <div class="sponsors-intro">
       <div class="detail-block-title">SPONSORS</div>
       <p class="sponsors-lead">DAIMYOU CONNECT 2026 は<br>下記の企業・団体様のご協賛により開催されます。</p>
-      <div class="sponsors-grid" id="sponsorsGrid"></div>
-      <div class="sponsors-empty" id="sponsorsEmpty" style="display:none">
-        <strong>COMING SOON</strong>
-        協賛企業情報は準備中です。<br>
-        公開まで今しばらくお待ちください。
-      </div>
+    </div>
+    <div id="sponsorsRoot"></div>
+    <div class="sponsors-empty" id="sponsorsEmpty" style="display:none">
+      <strong>COMING SOON</strong>
+      協賛企業情報は準備中です。<br>
+      公開まで今しばらくお待ちください。
     </div>
   </section>
 </div>
@@ -1217,27 +1279,54 @@ a.sponsor-card:hover {
 
   /* ===== SPONSORS ===== */
   function renderSponsors() {
-    var grid = document.getElementById('sponsorsGrid');
+    var root = document.getElementById('sponsorsRoot');
     var empty = document.getElementById('sponsorsEmpty');
-    if (!grid) return;
-    var sponsors = (DATA && Array.isArray(DATA.sponsors)) ? DATA.sponsors : [];
-    if (sponsors.length === 0) {
-      grid.style.display = 'none';
+    if (!root) return;
+    var sp = DATA && DATA.sponsors;
+    var tiers = [
+      { key: 'major', label: '大協賛', en: 'MAJOR SPONSOR', cls: 'tier-major' },
+      { key: 'middle', label: '中協賛', en: 'MIDDLE SPONSOR', cls: 'tier-middle' },
+      { key: 'regular', label: '協賛', en: 'SPONSOR', cls: 'tier-regular' },
+      { key: 'cooperation', label: '協力', en: 'COOPERATION', cls: 'tier-cooperation' }
+    ];
+    var hasAny = false;
+    if (sp && typeof sp === 'object' && !Array.isArray(sp)) {
+      hasAny = tiers.some(function(t) { return Array.isArray(sp[t.key]) && sp[t.key].length > 0; });
+    }
+    if (!hasAny) {
+      root.style.display = 'none';
       if (empty) empty.style.display = 'block';
       return;
     }
-    grid.style.display = 'grid';
+    root.style.display = 'block';
     if (empty) empty.style.display = 'none';
-    grid.innerHTML = sponsors.map(function(sp) {
-      var logoHtml = sp.logo
-        ? '<div class="sponsor-logo-wrap"><img src="' + sp.logo + '" alt="' + (sp.name || '') + ' ロゴ" loading="lazy"></div>'
-        : '<div class="sponsor-logo-wrap"><div class="sponsor-placeholder">' + (sp.name || 'COMING SOON') + '</div></div>';
-      var nameHtml = sp.name ? '<div class="sponsor-name">' + sp.name + '</div>' : '';
+
+    function renderCard(item) {
+      var logoHtml = item.logo
+        ? '<div class="sponsor-logo-wrap"><img src="' + item.logo + '" alt="' + (item.name || '') + ' ロゴ" loading="lazy"></div>'
+        : '<div class="sponsor-logo-wrap"><div class="sponsor-placeholder">' + (item.name || 'COMING SOON') + '</div></div>';
+      var nameHtml = item.name ? '<div class="sponsor-name">' + item.name + '</div>' : '';
       var inner = logoHtml + nameHtml;
-      if (sp.url) {
-        return '<a href="' + sp.url + '" target="_blank" rel="noopener noreferrer" class="sponsor-card">' + inner + '</a>';
+      if (item.url) {
+        return '<a href="' + item.url + '" target="_blank" rel="noopener noreferrer" class="sponsor-card">' + inner + '</a>';
       }
       return '<div class="sponsor-card">' + inner + '</div>';
+    }
+
+    root.innerHTML = tiers.map(function(t) {
+      var items = (sp[t.key] || []);
+      if (!items.length) return '';
+      return (
+        '<div class="sponsor-tier ' + t.cls + '">' +
+          '<div class="sponsor-tier-head">' +
+            '<span class="sponsor-tier-label">' + t.label + '</span>' +
+            '<span class="sponsor-tier-en">' + t.en + '</span>' +
+          '</div>' +
+          '<div class="sponsors-grid">' +
+            items.map(renderCard).join('') +
+          '</div>' +
+        '</div>'
+      );
     }).join('');
   }
 
