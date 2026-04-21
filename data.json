@@ -33,14 +33,14 @@
       { "name": "株式会社アレスト", "logo": "sponsors/arrest.png" }
     ],
     "middle": [
-      { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
-      { "name": "MEAT PLUS", "logo": "sponsors/meat-plus.jpg" },
-      { "name": "The Forward Base inc", "logo": "sponsors/forward-base.png" },
-      { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "アート＆ヘルスケア株式会社", "logo": "sponsors/art-healthcare.jpg" },
+      { "name": "一般社団法人しょうがい者雇用てとて", "logo": "sponsors/tetote.png" },
+      { "name": "アートアンドヘルスケア", "logo": "sponsors/art-healthcare.jpg" },
       { "name": "ブルーアライズ", "logo": "sponsors/blue-arise.jpg" },
-      { "name": "障がい者雇用支援機構てとて", "logo": "sponsors/tetote.png" },
-      { "name": "有限会社古西産業", "logo": "sponsors/furunishi.png" }
+      { "name": "MEAT PLUS", "logo": "sponsors/meat-plus.jpg" },
+      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
+      { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
+      { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
+      { "name": "KONISHI", "logo": "sponsors/furunishi.png" }
     ],
     "regular": [
       { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
