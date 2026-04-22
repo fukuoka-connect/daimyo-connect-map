@@ -244,6 +244,20 @@
       "tickets_remaining": 10
     },
     {
+      "id": "mine",
+      "name": "峯",
+      "area": "志免町",
+      "addr": "〒811-2205 福岡県糟屋郡志免町別府3-11-18",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.6025688,
+      "lng": 130.455775,
+      "instagram": "",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
       "id": "gbh",
       "name": "Green Beach House",
       "area": "唐津",
