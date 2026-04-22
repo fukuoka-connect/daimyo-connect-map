@@ -945,6 +945,7 @@ a { color: inherit; text-decoration: none; }
 .tier-middle .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
 .tier-regular .sponsors-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .tier-cooperation .sponsors-grid { grid-template-columns: 1fr; }
+.tier-sponsor .tier-middle { margin-bottom: 14px; }
 
 .sponsor-card {
   background: #fff;
@@ -1358,14 +1359,12 @@ a.sponsor-card:hover {
     var empty = document.getElementById('sponsorsEmpty');
     if (!root) return;
     var sp = DATA && DATA.sponsors;
-    var tiers = [
-      { key: 'major', en: 'MAJOR SPONSOR', cls: 'tier-major' },
-      { key: 'regular', en: 'SPONSOR', cls: 'tier-regular' },
-      { key: 'cooperation', label: '協力', en: 'COOPERATION', cls: 'tier-cooperation' }
-    ];
+
     var hasAny = false;
     if (sp && typeof sp === 'object' && !Array.isArray(sp)) {
-      hasAny = tiers.some(function(t) { return Array.isArray(sp[t.key]) && sp[t.key].length > 0; });
+      hasAny = ['major','middle','regular','cooperation'].some(function(k){
+        return Array.isArray(sp[k]) && sp[k].length > 0;
+      });
     }
     if (!hasAny) {
       root.style.display = 'none';
@@ -1387,22 +1386,61 @@ a.sponsor-card:hover {
       return '<div class="sponsor-card">' + inner + '</div>';
     }
 
-    root.innerHTML = tiers.map(function(t) {
-      var items = (sp[t.key] || []);
-      if (!items.length) return '';
-      var labelHtml = t.label ? '<span class="sponsor-tier-label">' + t.label + '</span>' : '';
-      return (
-        '<div class="sponsor-tier ' + t.cls + '">' +
+    function renderGrid(items) {
+      return '<div class="sponsors-grid">' + items.map(renderCard).join('') + '</div>';
+    }
+
+    var html = '';
+
+    // MAJOR
+    var major = sp.major || [];
+    if (major.length) {
+      html += (
+        '<div class="sponsor-tier tier-major">' +
           '<div class="sponsor-tier-head">' +
-            labelHtml +
-            '<span class="sponsor-tier-en">' + t.en + '</span>' +
+            '<span class="sponsor-tier-en">MAJOR SPONSOR</span>' +
           '</div>' +
-          '<div class="sponsors-grid">' +
-            items.map(renderCard).join('') +
-          '</div>' +
+          renderGrid(major) +
         '</div>'
       );
-    }).join('');
+    }
+
+    // SPONSOR（middle + regular を単一ヘッダー下に統合表示。グリッドは2カラム/3カラムを維持）
+    var middle = sp.middle || [];
+    var regular = sp.regular || [];
+    if (middle.length || regular.length) {
+      var innerHtml = '';
+      if (middle.length) {
+        innerHtml += '<div class="tier-middle">' + renderGrid(middle) + '</div>';
+      }
+      if (regular.length) {
+        innerHtml += '<div class="tier-regular">' + renderGrid(regular) + '</div>';
+      }
+      html += (
+        '<div class="sponsor-tier tier-sponsor">' +
+          '<div class="sponsor-tier-head">' +
+            '<span class="sponsor-tier-en">SPONSOR</span>' +
+          '</div>' +
+          innerHtml +
+        '</div>'
+      );
+    }
+
+    // COOPERATION
+    var coop = sp.cooperation || [];
+    if (coop.length) {
+      html += (
+        '<div class="sponsor-tier tier-cooperation">' +
+          '<div class="sponsor-tier-head">' +
+            '<span class="sponsor-tier-label">協力</span>' +
+            '<span class="sponsor-tier-en">COOPERATION</span>' +
+          '</div>' +
+          renderGrid(coop) +
+        '</div>'
+      );
+    }
+
+    root.innerHTML = html;
   }
 
   /* ===== COUNTDOWN ===== */

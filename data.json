@@ -32,7 +32,7 @@
     "major": [
       { "name": "株式会社アレスト", "logo": "sponsors/arrest.png" }
     ],
-    "regular": [
+    "middle": [
       { "name": "一般社団法人しょうがい者雇用てとて", "logo": "sponsors/tetote.png" },
       { "name": "アートアンドヘルスケア", "logo": "sponsors/art-healthcare.jpg" },
       { "name": "ブルーアライズ", "logo": "sponsors/blue-arise.jpg" },
@@ -40,7 +40,9 @@
       { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
       { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
       { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "KONISHI", "logo": "sponsors/furunishi.png" },
+      { "name": "KONISHI", "logo": "sponsors/furunishi.png" }
+    ],
+    "regular": [
       { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
       { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
       { "name": "酒場コージ" },
