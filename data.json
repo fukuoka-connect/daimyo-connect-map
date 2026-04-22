@@ -39,9 +39,9 @@
       { "name": "MEAT PLUS", "logo": "sponsors/meat-plus.jpg" },
       { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
       { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
+      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
       { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "KONISHI", "logo": "sponsors/furunishi.png" },
-      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" }
+      { "name": "KONISHI", "logo": "sponsors/furunishi.png" }
     ],
     "regular": [
       { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
