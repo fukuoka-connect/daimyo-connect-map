@@ -40,10 +40,10 @@
       { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
       { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
       { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "KONISHI", "logo": "sponsors/furunishi.png" }
+      { "name": "KONISHI", "logo": "sponsors/furunishi.png" },
+      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" }
     ],
     "regular": [
-      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
       { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
       { "name": "酒場コージ" },
       { "name": "ぽん太", "logo": "sponsors/ponta.png" },
