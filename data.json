@@ -41,7 +41,8 @@
       { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
       { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
       { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "KONISHI", "logo": "sponsors/furunishi.png" }
+      { "name": "KONISHI", "logo": "sponsors/furunishi.png" },
+      { "name": "Herbay", "logo": "sponsors/herbay.png" }
     ],
     "regular": [
       { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
@@ -53,8 +54,7 @@
       { "name": "株式会社フォースターセキュリティ", "logo": "sponsors/forstar.jpg" },
       { "name": "node", "logo": "sponsors/node.jpg" },
       { "name": "株式会社Valore", "logo": "sponsors/valore.png" },
-      { "name": "アフロタコス", "logo": "sponsors/afrotacos.jpg" },
-      { "name": "Herbay", "logo": "sponsors/herbay.png" }
+      { "name": "アフロタコス", "logo": "sponsors/afrotacos.jpg" }
     ],
     "cooperation": [
       { "name": "CROSSFM", "logo": "sponsors/crossfm.png" }
