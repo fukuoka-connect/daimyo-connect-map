@@ -146,6 +146,20 @@
       "tickets_remaining": 3
     },
     {
+      "id": "upsetters",
+      "name": "UPSETTERS",
+      "area": "春吉",
+      "addr": "〒810-0003 福岡県福岡市中央区春吉3-13-24-2 レガリータ天神1",
+      "tel": "",
+      "hrs": "",
+      "lat": 33.5892536,
+      "lng": 130.4061087,
+      "instagram": "https://www.instagram.com/upsetters.haruyoshi/",
+      "desc": "",
+      "tickets_total": 10,
+      "tickets_remaining": 10
+    },
+    {
       "id": "allrush",
       "name": "Place of all RUSH",
       "area": "薬院",
