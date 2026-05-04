@@ -87,7 +87,7 @@
       "instagram": "https://www.instagram.com/skb_ko_zi/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 10
+      "tickets_remaining": 3
     },
     {
       "id": "mintbar",
@@ -143,7 +143,7 @@
       "instagram": "https://www.instagram.com/pinonbar_daimyo/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 3
+      "tickets_remaining": 0
     },
     {
       "id": "upsetters",
@@ -185,7 +185,7 @@
       "instagram": "https://www.instagram.com/koubashiya_light/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 3
+      "tickets_remaining": 0
     },
     {
       "id": "owan",
@@ -199,7 +199,7 @@
       "instagram": "https://www.instagram.com/shokudou_owan/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 3
+      "tickets_remaining": 0
     },
     {
       "id": "bruntjet",
@@ -283,7 +283,7 @@
       "instagram": "https://www.instagram.com/gbh.2010/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 10
+      "tickets_remaining": 3
     }
   ]
 }
