@@ -826,7 +826,19 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-/* ===== TIMETABLE (COMING SOON) ===== */
+/* ===== TIMETABLE ===== */
+.timetable-image-wrap {
+  margin: 16px 0 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,212,117,0.25);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  background: #1a0a14;
+}
+.timetable-image {
+  display: block;
+  width: 100%; height: auto;
+}
 .timetable-placeholder {
   text-align: center;
   padding: 24px 16px 12px;
@@ -1174,15 +1186,12 @@ a.sponsor-card:hover {
     <!-- TIMETABLE -->
     <div class="detail-block">
       <div class="detail-block-title">TIMETABLE</div>
-      <div class="timetable-placeholder">
-        <div class="timetable-marquee">
-          <span class="timetable-coming">COMING SOON</span>
-        </div>
-        <p class="timetable-note">
-          タイムテーブルは近日公開予定です。<br>
-          公式 Instagram <a href="https://www.instagram.com/daimyo_connect/" target="_blank" rel="noopener noreferrer">@daimyo_connect</a> にてお知らせします。
-        </p>
+      <div class="timetable-image-wrap">
+        <img src="timetable.jpg" alt="DAIMYOU CONNECT 2026 タイムスケジュール" class="timetable-image" loading="lazy">
       </div>
+      <p class="timetable-note">
+        ※タイムテーブルは予告なく変更される場合があります。最新情報は公式 Instagram <a href="https://www.instagram.com/daimyo_connect/" target="_blank" rel="noopener noreferrer">@daimyo_connect</a> にて。
+      </p>
     </div>
 
     <!-- EVENT INFO -->
