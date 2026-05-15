@@ -54,7 +54,8 @@
       { "name": "株式会社フォースターセキュリティ", "logo": "sponsors/forstar.jpg" },
       { "name": "node", "logo": "sponsors/node.jpg" },
       { "name": "株式会社Valore", "logo": "sponsors/valore.png" },
-      { "name": "アフロタコス", "logo": "sponsors/afrotacos.jpg" }
+      { "name": "アフロタコス", "logo": "sponsors/afrotacos.jpg" },
+      { "name": "町の不動産屋 宝栄", "logo": "sponsors/houei.png" }
     ],
     "cooperation": [
       { "name": "CROSSFM", "logo": "sponsors/crossfm.png" }
@@ -283,7 +284,7 @@
       "instagram": "https://www.instagram.com/gbh.2010/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 3
+      "tickets_remaining": 0
     }
   ]
 }
