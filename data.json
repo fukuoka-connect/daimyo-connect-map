@@ -30,36 +30,108 @@
   },
   "sponsors": {
     "major": [
-      { "name": "株式会社アレスト", "logo": "sponsors/arrest.png" }
+      {
+        "name": "株式会社アレスト",
+        "logo": "sponsors/arrest.png"
+      }
     ],
     "middle": [
-      { "name": "一般社団法人しょうがい者雇用てとて", "logo": "sponsors/tetote.png" },
-      { "name": "アートアンドヘルスケア", "logo": "sponsors/art-healthcare.jpg" },
-      { "name": "ブルーアライズ", "logo": "sponsors/blue-arise.jpg" },
-      { "name": "MEAT PLUS", "logo": "sponsors/meat-plus.jpg" },
-      { "name": "ONEDAY", "logo": "sponsors/oneday.png" },
-      { "name": "Apple Butter Store", "logo": "sponsors/apple-butter.png" },
-      { "name": "THE FORWARD BASE", "logo": "sponsors/forward-base.png" },
-      { "name": "Ties home", "logo": "sponsors/ties-home.jpg" },
-      { "name": "KONISHI", "logo": "sponsors/furunishi.png" },
-      { "name": "Herbay", "logo": "sponsors/herbay.png" }
+      {
+        "name": "一般社団法人しょうがい者雇用てとて",
+        "logo": "sponsors/tetote.png"
+      },
+      {
+        "name": "アートアンドヘルスケア",
+        "logo": "sponsors/art-healthcare.jpg"
+      },
+      {
+        "name": "ブルーアライズ",
+        "logo": "sponsors/blue-arise.jpg"
+      },
+      {
+        "name": "MEAT PLUS",
+        "logo": "sponsors/meat-plus.jpg"
+      },
+      {
+        "name": "ONEDAY",
+        "logo": "sponsors/oneday.png"
+      },
+      {
+        "name": "Apple Butter Store",
+        "logo": "sponsors/apple-butter.png"
+      },
+      {
+        "name": "THE FORWARD BASE",
+        "logo": "sponsors/forward-base.png"
+      },
+      {
+        "name": "Ties home",
+        "logo": "sponsors/ties-home.jpg"
+      },
+      {
+        "name": "KONISHI",
+        "logo": "sponsors/furunishi.png"
+      },
+      {
+        "name": "Herbay",
+        "logo": "sponsors/herbay.png"
+      }
     ],
     "regular": [
-      { "name": ".com STAND", "logo": "sponsors/comstand.jpg" },
-      { "name": "酒場コージ", "logo": "sponsors/koji.png" },
-      { "name": "ぽん太", "logo": "sponsors/ponta.png" },
-      { "name": "駒たか男", "logo": "sponsors/komatakao.jpg" },
-      { "name": "Green Beach House", "logo": "sponsors/green-beach.png" },
-      { "name": "BRUNT JET", "logo": "sponsors/brunt-jet.jpg" },
-      { "name": "株式会社フォースターセキュリティ", "logo": "sponsors/forstar.jpg" },
-      { "name": "node", "logo": "sponsors/node.jpg" },
-      { "name": "株式会社Valore", "logo": "sponsors/valore.png" },
-      { "name": "アフロタコス", "logo": "sponsors/afrotacos.jpg" },
-      { "name": "町の不動産屋 宝栄", "logo": "sponsors/houei.png" },
-      { "name": "想夫恋 宇美店", "logo": "sponsors/sofuren-umi.png" }
+      {
+        "name": ".com STAND",
+        "logo": "sponsors/comstand.jpg"
+      },
+      {
+        "name": "酒場コージ",
+        "logo": "sponsors/koji.png"
+      },
+      {
+        "name": "ぽん太",
+        "logo": "sponsors/ponta.png"
+      },
+      {
+        "name": "駒たか男",
+        "logo": "sponsors/komatakao.jpg"
+      },
+      {
+        "name": "Green Beach House",
+        "logo": "sponsors/green-beach.png"
+      },
+      {
+        "name": "BRUNT JET",
+        "logo": "sponsors/brunt-jet.jpg"
+      },
+      {
+        "name": "株式会社フォースターセキュリティ",
+        "logo": "sponsors/forstar.jpg"
+      },
+      {
+        "name": "node",
+        "logo": "sponsors/node.jpg"
+      },
+      {
+        "name": "株式会社Valore",
+        "logo": "sponsors/valore.png"
+      },
+      {
+        "name": "アフロタコス",
+        "logo": "sponsors/afrotacos.jpg"
+      },
+      {
+        "name": "町の不動産屋 宝栄",
+        "logo": "sponsors/houei.png"
+      },
+      {
+        "name": "想夫恋 宇美店",
+        "logo": "sponsors/sofuren-umi.png"
+      }
     ],
     "cooperation": [
-      { "name": "CROSSFM", "logo": "sponsors/crossfm.png" }
+      {
+        "name": "CROSSFM",
+        "logo": "sponsors/crossfm.png"
+      }
     ]
   },
   "shops": [
@@ -159,7 +231,7 @@
       "instagram": "https://www.instagram.com/upsetters.haruyoshi/",
       "desc": "",
       "tickets_total": 10,
-      "tickets_remaining": 10
+      "tickets_remaining": 3
     },
     {
       "id": "allrush",
