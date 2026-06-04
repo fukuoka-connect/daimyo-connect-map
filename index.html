@@ -1281,8 +1281,8 @@ a.sponsor-card:hover {
       <span class="shop-count"><strong id="visibleCount">0</strong> / <span id="totalCount">0</span></span>
     </div>
     <div class="ticket-legend">
-      <span class="ticket-legend-item"><span class="sym ok">○</span> 販売中</span>
-      <span class="ticket-legend-item"><span class="sym low">△</span> 残りわずか</span>
+      <span class="ticket-legend-item"><span class="sym ok">残り○枚</span> 販売中</span>
+      <span class="ticket-legend-item"><span class="sym low">残り○枚</span> 残りわずか</span>
       <span class="ticket-legend-item"><span class="sym out">×</span> 完売</span>
     </div>
     <div id="shopList"></div>
@@ -1791,9 +1791,9 @@ a.sponsor-card:hover {
       const pct = tot > 0 ? rem / tot : 0;
       let statusCls = '';
       let badgeCls = '';
-      let badgeText = '○';
+      let badgeText = rem;
       if (rem <= 0) { statusCls = 'sold-out'; badgeCls = 'out'; badgeText = '×'; }
-      else if (pct <= 0.3) { badgeCls = 'low'; badgeText = '△'; }
+      else if (pct <= 0.3) { badgeCls = 'low'; badgeText = rem; }
 
       const pinColor = rem <= 0 ? '#999' : '#d4400a';
       const icon = L.divIcon({
@@ -1809,7 +1809,7 @@ a.sponsor-card:hover {
       const layer = L.marker([s.lat, s.lng], { icon: icon }).addTo(map);
 
       const numCls = rem <= 0 ? 'out' : pct <= 0.3 ? 'low' : '';
-      const popupSymbol = rem <= 0 ? '× 完売' : (pct <= 0.3 ? '△ 残りわずか' : '○ 販売中');
+      const popupSymbol = rem <= 0 ? '× 完売' : '残り' + rem + '枚';
       layer.bindPopup(
         '<div class="popup-name">' + s.name + '</div>' +
         '<div class="popup-tickets">チケット <span class="num ' + numCls + '">' + popupSymbol + '</span></div>',
@@ -1842,8 +1842,8 @@ a.sponsor-card:hover {
       const pct = tot > 0 ? rem / tot : 0;
       let dotCls = '', numCls = '', statusSymbol = '', statusLabel = '';
       if (rem <= 0) { dotCls = 'out'; numCls = 'out'; statusSymbol = '×'; statusLabel = '完売'; }
-      else if (pct <= 0.3) { dotCls = 'low'; numCls = 'low'; statusSymbol = '△'; statusLabel = '残りわずか'; }
-      else { statusSymbol = '○'; statusLabel = '販売中'; }
+      else if (pct <= 0.3) { dotCls = 'low'; numCls = 'low'; statusSymbol = '残り' + rem + '枚'; statusLabel = '残りわずか'; }
+      else { statusSymbol = '残り' + rem + '枚'; statusLabel = '販売中'; }
 
       const card = document.createElement('div');
       card.className = 'shop-card' + (rem <= 0 ? ' sold-out' : '');
